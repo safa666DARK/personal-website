@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزومه - دکتر صفا مقنیان</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>دکتر صفا مقنیان</h1>
+        <p>🚀 توسعه‌دهنده پایتون | طراح وب و اپلیکیشن‌های دسکتاپ</p>
+        <p>مترجم، نویسنده و ویراستار</p>
+    </header>
+    
+    <main>
+        <section id="about">
+            <h2>درباره من</h2>
+            <p>توسعه‌دهنده پایتون با تخصص در ساخت برنامه‌های کاربردی تحت ویندوز و سیستم‌های مدیریتی کامل. مترجم، نویسنده و ویراستار با علاقه‌مندي به یادگیری و خلق پروژه‌های نوآورانه.</p>
+        </section>
+
+        <section id="cultural">
+            <h2>📚 سوابق فرهنگی و علمی</h2>
+            <div class="project">
+                <h3>نویسندگی</h3>
+                <p>کتاب "جهانی‌سازی کسب‌وکار"</p>
+            </div>
+            <div class="project">
+                <h3>ترجمه</h3>
+                <p>کتاب‌ها و مقالات تخصصی</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>🛠️ مهارت‌های فنی</h2>
+            <ul>
+                <li>برنامه‌نویسی شی‌گرا پیشرفته</li>
+                <li>توسعه وب با Flask و HTML/CSS</li>
+                <li>طراحی رابط‌های گرافیکی با Tkinter</li>
+                <li>پایگاه داده SQLite و مدیریت داده</li>
+                <li>کار با API و اتوماسیون</li>
+                <li>توسعه سیستم‌های مدیریتی کامل</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>💼 پروژه‌های نمونه</h2>
+            <div class="project">
+                <h3>سیستم مدیریت کتابخانه (شی‌گرا + GUI)</h3>
+                <p>سیستم کامل مدیریت کتابخانه با رابط گرافیکی پیشرفته</p>
+            </div>
+            <div class="project">
+                <h3>اپلیکیشن مدیریت خرید فروشگاهی پیشرفته</h3>
+                <p>سیستم جامع مدیریت خرید و فروش با امکانات پیشرفته</p>
+            </div>
+            <div class="project">
+                <h3>سیستم مدیریت مشتری حرفه‌ای</h3>
+                <p>سیستم CRM کامل برای مدیریت ارتباط با مشتریان</p>
+            </div>
+            <div class="project">
+                <h3>سیستم اداری</h3>
+                <p>سیستم یکپارچه مدیریت امور اداری</p>
+            </div>
+            <div class="project">
+                <h3>سیستم پیشرفته مدیریت فروشگاه</h3>
+                <p>سیستم جامع مدیریت فروشگاه با گزارش‌گیری پیشرفته</p>
+            </div>
+            <div class="project">
+                <h3>سیستم حرفه‌ای کلینیک</h3>
+                <p>سیستم تخصصی مدیریت مطب و کلینیک</p>
+            </div>
+        </section>
+
+                <!-- ماشین حساب -->
+                <section id="calculator">
+                    <h2>🧮 ماشین حساب جاوااسکریپت</h2>
+                    <div class="calc">
+                        <input type="text" id="calc-input" readonly>
+                        <div class="calc-buttons">
+                            <button onclick="addToCalc('7')">7</button>
+                            <button onclick="addToCalc('8')">8</button>
+                            <button onclick="addToCalc('9')">9</button>
+                            <button onclick="addToCalc('+')">+</button>
+                            
+                            <button onclick="addToCalc('4')">4</button>
+                            <button onclick="addToCalc('5')">5</button>
+                            <button onclick="addToCalc('6')">6</button>
+                            <button onclick="addToCalc('-')">-</button>
+                            
+                            <button onclick="addToCalc('1')">1</button>
+                            <button onclick="addToCalc('2')">2</button>
+                            <button onclick="addToCalc('3')">3</button>
+                            <button onclick="addToCalc('*')">*</button>
+                            
+                            <button onclick="addToCalc('0')">0</button>
+                            <button onclick="clearCalc()">C</button>
+                            <button onclick="calculate()">=</button>
+                            <button onclick="addToCalc('/')">/</button>
+                        </div>
+                    </div>
+                </section>
+    </main>
+
+    <footer>
+        <section id="contact">
+            <h2>📞 تماس با من</h2>
+            <div class="contact-info">
+                <p>📧 ایمیل: sara_111174@yahoo.com</p>
+                <p>📍 موقعیت: ایران - تبریز</p>
+            </div>
+            
+            <!-- فرم تماس -->
+            <div class="contact-form">
+                <h3>📩 ارسال پیام</h3>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">نام شما:</label>
+                        <input type="text" id="name" name="from_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ایمیل شما:</label>
+                        <input type="email" id="email" name="from_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">پیام شما:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit">ارسال پیام</button>
+                </form>
+                <div id="form-message"></div>
+            </div>
+
+            <!-- لینک مدیریت پیام‌ها -->
+            <div class="admin-link">
+                <a href="javascript:void(0)" onclick="showLogin()">🔐 مدیریت پیام‌ها</a>
+            </div>
+        </section>
+    </footer>
+
+    <!-- پاپ‌آپ لاگین -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h3>🔐 ورود به مدیریت پیام‌ها</h3>
+            <form onsubmit="checkPassword(event)">
+                <div class="form-group">
+                    <label for="password">رمز عبور:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">ورود</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- اسکریپت‌ها -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        emailjs.init("_r2ki4Y9B46uAA7NX");
+        
+        // مدیریت فرم تماس
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const messageDiv = document.getElementById('form-message');
+            messageDiv.innerHTML = '⏳ در حال ارسال پیام...';
+            messageDiv.style.color = 'blue';
+            messageDiv.style.textAlign = 'center';
+            messageDiv.style.marginTop = '1rem';
+            messageDiv.style.padding = '1rem';
+            messageDiv.style.background = '#f8f9fa';
+            messageDiv.style.borderRadius = '5px';
+
+            emailjs.sendForm('service_7j5e2s6', 'template_p2n17k9', this)
+                .then(function() {
+                    messageDiv.innerHTML = '✅ پیام شما با موفقیت ارسال شد! به زودی پاسخ می‌دم.';
+                    messageDiv.style.color = 'green';
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    messageDiv.innerHTML = '❌ خطا در ارسال پیام. لطفاً مستقیماً به sara_111174@yahoo.com ایمیل بزنید.';
+                    messageDiv.style.color = 'red';
+                    console.log('خطای EmailJS:', error);
+                });
+        });
+
+        // مدیریت لاگین
+        function showLogin() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        function closeLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function checkPassword(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            const correctPassword = "123456";
+            
+            if (password === correctPassword) {
+                alert('با موفقیت وارد شدید! پیام‌ها به ایمیل شما ارسال می‌شوند.');
+                closeLogin();
+                window.open('https://mail.yahoo.com', '_blank');
+            } else {
+                alert('رمز عبور اشتباه است!');
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target === modal) {
+                closeLogin();
+            }
+        }
+
+        // متغیرهای ماشین حساب
+        let calcInput = document.getElementById('calc-input');
+        
+        // اگر المنت وجود داشت
+        if (calcInput) {
+            // اضافه کردن عدد به ماشین حساب
+            function addToCalc(value) {
+                calcInput.value += value;
+            }
+            
+            // پاک کردن ماشین حساب
+            function clearCalc() {
+                calcInput.value = '';
+            }
+            
+            // محاسبه نتیجه
+            function calculate() {
+                try {
+                    // استفاده از Function برای امنیت بیشتر
+                    let result = Function('return ' + calcInput.value)();
+                    
+                    // چک کردن اگر عدد خروجی باشه
+                    if (typeof result === 'number' && !isNaN(result)) {
+                        calcInput.value = result;
+                    } else {
+                        calcInput.value = 'خطا!';
+                    }
+                } catch (error) {
+                    calcInput.value = 'خطا!';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
