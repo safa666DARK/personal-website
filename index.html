@@ -3,537 +3,617 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رزومه - دکتر صفا مقنیان</title>
+    <title>رزومه - دکتر صفا مقنیان | توسعه‌دهنده پایتون</title>
+    <meta name="description" content="گالری ۱۴ پروژه عملی با Python, Tkinter, Flask و فایل‌های اجرایی .exe">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- دکمه بازگشت به بالا -->
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <header>
         <h1>دکتر صفا مقنیان</h1>
         <p>🚀 توسعه‌دهنده پایتون | طراح وب و اپلیکیشن‌های دسکتاپ</p>
         <p>مترجم، نویسنده و ویراستار</p>
+        
+        <!-- ناوبری سریع -->
+        <nav class="quick-nav">
+            <a href="#projects-gallery"><i class="fas fa-rocket"></i> پروژه‌ها</a>
+            <a href="#clock"><i class="fas fa-clock"></i> ساعت</a>
+            <a href="#calculator"><i class="fas fa-calculator"></i> ماشین حساب</a>
+            <a href="#contact"><i class="fas fa-envelope"></i> تماس</a>
+        </nav>
     </header>
     
     <main>
         <section id="about">
-            <h2>درباره من</h2>
+            <h2><i class="fas fa-user"></i> درباره من</h2>
             <p>توسعه‌دهنده پایتون با تخصص در ساخت برنامه‌های کاربردی تحت ویندوز و سیستم‌های مدیریتی کامل. مترجم، نویسنده و ویراستار با علاقه‌مندي به یادگیری و خلق پروژه‌های نوآورانه.</p>
         </section>
 
         <section id="cultural">
-            <h2>📚 سوابق فرهنگی و علمی</h2>
+            <h2><i class="fas fa-book"></i> سوابق فرهنگی و علمی</h2>
             <div class="project">
-                <h3>نویسندگی</h3>
+                <h3><i class="fas fa-pen-fancy"></i> نویسندگی</h3>
                 <p>کتاب "جهانی‌سازی کسب‌وکار"</p>
             </div>
             <div class="project">
-                <h3>ترجمه</h3>
+                <h3><i class="fas fa-language"></i> ترجمه</h3>
                 <p>کتاب‌ها و مقالات تخصصی</p>
             </div>
         </section>
 
         <section id="skills">
-            <h2>🛠️ مهارت‌های فنی</h2>
-            <ul>
-                <li>برنامه‌نویسی شی‌گرا پیشرفته (پایتون)</li>
-                <li>توسعه وب با Flask، HTML/CSS و جاوااسکریپت</li>
-                <li>طراحی رابط‌های گرافیکی با Tkinter</li>
-                <li>پایگاه داده SQLite و مدیریت داده</li>
-                <li>کار با API و اتوماسیون</li>
-                <li>توسعه سیستم‌های مدیریتی کامل</li>
-                <li><strong>جاوااسکریپت مدرن:</strong> DOM Manipulation، Event Handling، کار با LocalStorage</li>
-                <li><strong>پروژه‌های وب تعاملی:</strong> ماشین حساب، ساعت آنالوگ، فرم‌های پویا</li>
-            </ul>
-        </section>
-
-        <section id="projects">
-            <h2>💼 پروژه‌های نمونه</h2>
-            <div class="project">
-                <h3>سیستم مدیریت کتابخانه (شی‌گرا + GUI)</h3>
-                <p>سیستم کامل مدیریت کتابخانه با رابط گرافیکی پیشرفته</p>
-            </div>
-            <div class="project">
-                <h3>اپلیکیشن مدیریت خرید فروشگاهی پیشرفته</h3>
-                <p>سیستم جامع مدیریت خرید و فروش با امکانات پیشرفته</p>
-            </div>
-            <div class="project">
-                <h3>سیستم مدیریت مشتری حرفه‌ای</h3>
-                <p>سیستم CRM کامل برای مدیریت ارتباط با مشتریان</p>
-            </div>
-            <div class="project">
-                <h3>سیستم اداری</h3>
-                <p>سیستم یکپارچه مدیریت امور اداری</p>
-            </div>
-            <div class="project">
-                <h3>سیستم پیشرفته مدیریت فروشگاه</h3>
-                <p>سیستم جامع مدیریت فروشگاه با گزارش‌گیری پیشرفته</p>
-            </div>
-            <div class="project">
-                <h3>سیستم حرفه‌ای کلینیک</h3>
-                <p>سیستم تخصصی مدیریت مطب و کلینیک</p>
+            <h2><i class="fas fa-tools"></i> مهارت‌های فنی</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fab fa-python"></i> پایتون</h3>
+                    <ul>
+                        <li>برنامه‌نویسی شی‌گرا پیشرفته</li>
+                        <li>طراحی رابط‌های گرافیکی با Tkinter</li>
+                        <li>توسعه سیستم‌های مدیریتی کامل</li>
+                        <li>۱۱ پروژه با فایل اجرایی .exe</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe"></i> وب</h3>
+                    <ul>
+                        <li>توسعه وب با Flask</li>
+                        <li>HTML/CSS پیشرفته</li>
+                        <li>جاوااسکریپت مدرن</li>
+                        <li>طراحی ریسپانسیو</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> پایگاه داده</h3>
+                    <ul>
+                        <li>SQLite و مدیریت داده</li>
+                        <li>طراحی و بهینه‌سازی</li>
+                        <li>گزارش‌گیری پیشرفته</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-                <!-- ماشین حساب -->
-                <section id="calculator">
-                    <h2>🧮 ماشین حساب جاوااسکریپت</h2>
-                    <div class="calc">
-                        <input type="text" id="calc-input" readonly>
-                        <div class="calc-buttons">
-                            <button onclick="addToCalc('7')">7</button>
-                            <button onclick="addToCalc('8')">8</button>
-                            <button onclick="addToCalc('9')">9</button>
-                            <button onclick="addToCalc('+')">+</button>
-                            
-                            <button onclick="addToCalc('4')">4</button>
-                            <button onclick="addToCalc('5')">5</button>
-                            <button onclick="addToCalc('6')">6</button>
-                            <button onclick="addToCalc('-')">-</button>
-                            
-                            <button onclick="addToCalc('1')">1</button>
-                            <button onclick="addToCalc('2')">2</button>
-                            <button onclick="addToCalc('3')">3</button>
-                            <button onclick="addToCalc('*')">*</button>
-                            
-                            <button onclick="addToCalc('0')">0</button>
-                            <button onclick="clearCalc()">C</button>
-                            <button onclick="calculate()">=</button>
-                            <button onclick="addToCalc('/')">/</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="clock">
-                    <h2>⏰ ساعت آنالوگ</h2>
-                    <div class="clock-container">
-                        <div class="clock">
-                            <div class="hour-hand" id="hour-hand"></div>
-                            <div class="minute-hand" id="minute-hand"></div>
-                            <div class="second-hand" id="second-hand"></div>
-                            <div class="center-dot"></div>
-                            
-                            <!-- اعداد ساعت -->
-                            <div class="number number-12">12</div>
-                            <div class="number number-1">1</div>
-                            <div class="number number-2">2</div>
-                            <div class="number number-3">3</div>
-                            <div class="number number-4">4</div>
-                            <div class="number number-5">5</div>
-                            <div class="number number-6">6</div>
-                            <div class="number number-7">7</div>
-                            <div class="number number-8">8</div>
-                            <div class="number number-9">9</div>
-                            <div class="number number-10">10</div>
-                            <div class="number number-11">11</div>
-                        </div>
-                        <div class="digital-clock" id="digital-clock"></div>
-                    </div>
-                </section>
-
-                <!-- گالری پروژه‌ها -->
-<section id="projects-gallery">
-    <h2>🚀 گالری پروژه‌های من</h2>
-    <p>۱۴ پروژه عملی که با Python, Tkinter و Flask توسعه دادم</p>
-    
-    <!-- فیلترهای تکنولوژی -->
-    <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">همه پروژه‌ها (14)</button>
-        <button class="filter-btn" data-filter="python">پایتون</button>
-        <button class="filter-btn" data-filter="tkinter">Tkinter</button>
-        <button class="filter-btn" data-filter="exe">فایل .exe</button>
-        <button class="filter-btn" data-filter="flask">Flask</button>
-        <button class="filter-btn" data-filter="javascript">جاوااسکریپت</button>
-        <button class="filter-btn" data-filter="database">پایگاه داده</button>
-    </div>
-    
-    <!-- گالری کامل -->
-    <div class="gallery-grid">
-        <!-- پروژه ۱ -->
-        <div class="project-card" data-tech="python tkinter exe database">
-            <div class="project-icon clinic">
-                <i class="fas fa-hospital-alt"></i>
-            </div>
-            <div class="project-info">
-                <h3>ClinicManager®</h3>
-                <p>سیستم مدیریت کامل کلینیک پزشکی</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">.exe</span>
-                    <span class="tag">SQLite</span>
-                </div>
-                <div class="project-features">
-                    <span>📊 داشبورد مدیریت</span>
-                    <span>👥 مدیریت بیماران</span>
-                    <span>💊 سیستم نسخه‌نویسی</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۲ -->
-        <div class="project-card" data-tech="python tkinter exe database">
-            <div class="project-icon crm">
-                <i class="fas fa-users-cog"></i>
-            </div>
-            <div class="project-info">
-                <h3>CRM پیشرفته</h3>
-                <p>سیستم مدیریت ارتباط با مشتریان</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">.exe</span>
-                    <span class="tag">SQLite</span>
-                </div>
-                <div class="project-features">
-                    <span>📈 گزارش‌گیری پیشرفته</span>
-                    <span>📅 مدیریت قرارها</span>
-                    <span>💰 سیستم مالی</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۳ -->
-        <div class="project-card" data-tech="python tkinter exe">
-            <div class="project-icon file">
-                <i class="fas fa-folder-open"></i>
-            </div>
-            <div class="project-info">
-                <h3>FileMaster Pro®</h3>
-                <p>مدیریت هوشمند فایل‌ها</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">.exe</span>
-                    <span class="tag">OS Module</span>
-                </div>
-                <div class="project-features">
-                    <span>🔍 جستجوی پیشرفته</span>
-                    <span>📂 دسته‌بندی خودکار</span>
-                    <span>⚡ عملیات batch</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۴ -->
-        <div class="project-card" data-tech="python tkinter exe">
-            <div class="project-icon pdf">
-                <i class="fas fa-file-pdf"></i>
-            </div>
-            <div class="project-info">
-                <h3>PDF_PROJECT®</h3>
-                <p>ابزارهای حرفه‌ای پردازش PDF</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">.exe</span>
-                    <span class="tag">PyPDF2</span>
-                </div>
-                <div class="project-features">
-                    <span>🔗 ادغام PDF</span>
-                    <span>✂️ تقسیم PDF</span>
-                    <span>🔐 رمزگذاری</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۵ -->
-        <div class="project-card" data-tech="python tkinter exe">
-            <div class="project-icon invoice">
-                <i class="fas fa-file-invoice-dollar"></i>
-            </div>
-            <div class="project-info">
-                <h3>InvoiceGenerator</h3>
-                <p>سیستم تولید فاکتور خودکار</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">.exe</span>
-                </div>
-                <div class="project-features">
-                    <span>🧾 قالب‌های آماده</span>
-                    <span>💵 محاسبات مالی</span>
-                    <span>🖨️ خروجی PDF</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۶ -->
-        <div class="project-card" data-tech="python tkinter exe">
-            <div class="project-icon todo">
-                <i class="fas fa-tasks"></i>
-            </div>
-            <div class="project-info">
-                <h3>TO-DO-PROJECT®</h3>
-                <p>مدیریت کارها و پروژه‌ها</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">.exe</span>
-                </div>
-                <div class="project-features">
-                    <span>⏰ یادآور هوشمند</span>
-                    <span>🏷️ دسته‌بندی</span>
-                    <span>📊 پیشرفت پروژه</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۷ -->
-        <div class="project-card" data-tech="python tkinter exe">
-            <div class="project-icon store">
-                <i class="fas fa-shopping-cart"></i>
-            </div>
-            <div class="project-info">
-                <h3>PROJECT_STORE®</h3>
-                <p>سیستم فروشگاه و انبار</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">.exe</span>
-                </div>
-                <div class="project-features">
-                    <span>📦 مدیریت موجودی</span>
-                    <span>🧾 صدور فاکتور</span>
-                    <span>📊 گزارش فروش</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۸ -->
-        <div class="project-card" data-tech="python flask javascript">
-            <div class="project-icon web">
-                <i class="fas fa-globe"></i>
-            </div>
-            <div class="project-info">
-                <h3>github-pages</h3>
-                <p>پروژه‌های تحت وب</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Flask</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">HTML/CSS</span>
-                </div>
-                <div class="project-features">
-                    <span>🌐 وب اپلیکیشن</span>
-                    <span>📱 ریسپانسیو</span>
-                    <span>⚡ API</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۹ -->
-        <div class="project-card" data-tech="python tkinter exe">
-            <div class="project-icon shopping">
-                <i class="fas fa-store"></i>
-            </div>
-            <div class="project-info">
-                <h3>shopping®</h3>
-                <p>اپلیکیشن فروشگاهی</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">.exe</span>
-                </div>
-                <div class="project-features">
-                    <span>🛒 سبد خرید</span>
-                    <span>👤 پنل کاربری</span>
-                    <span>📦 مدیریت محصولات</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۱۰ -->
-        <div class="project-card" data-tech="javascript html-css">
-            <div class="project-icon notes">
-                <i class="fas fa-book-medical"></i>
-            </div>
-            <div class="project-info">
-                <h3>دفترچه پزشکی حرفه‌ای</h3>
-                <p>برنامه تحت وب مدیریت یادداشت‌ها</p>
-                <div class="tech-tags">
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">HTML/CSS</span>
-                    <span class="tag">LocalStorage</span>
-                </div>
-                <div class="project-features">
-                    <span>📝 یادداشت‌نویسی</span>
-                    <span>🔍 جستجوی پیشرفته</span>
-                    <span>📁 دسته‌بندی</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۱۱ -->
-        <div class="project-card" data-tech="python">
-            <div class="project-icon bot">
-                <i class="fas fa-robot"></i>
-            </div>
-            <div class="project-info">
-                <h3>بات هوش مصنوعی</h3>
-                <p>چت‌بات و ابزارهای هوشمند</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">AI</span>
-                    <span class="tag">NLP</span>
-                </div>
-                <div class="project-features">
-                    <span>💬 پردازش زبان</span>
-                    <span>🤖 یادگیری ماشین</span>
-                    <span>🔧 ابزارهای خودکار</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- پروژه ۱۲ -->
-        <div class="project-card" data-tech="javascript">
-            <div class="project-icon filejs">
-                <i class="fas fa-file-code"></i>
-            </div>
-            <div class="project-info">
-                <h3>File Manager (JS)</h3>
-                <p>مدیریت فایل‌ها با جاوااسکریپت</p>
-                <div class="tech-tags">
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">File System</span>
-                </div>
-                <div class="project-features">
-                    <span>📁 مدیریت فایل</span>
-                    <span>⚡ عملیات سریع</span>
-                    <span>🔧 ابزارهای توسعه</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- ۲ پروژه باقی‌مانده -->
-        <div class="project-card" data-tech="python tkinter">
-            <div class="project-icon crm2">
-                <i class="fas fa-user-tie"></i>
-            </div>
-            <div class="project-info">
-                <h3>CRM استاندارد</h3>
-                <p>سیستم مدیریت مشتریان پایه</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                </div>
-                <div class="project-features">
-                    <span>👥 مدیریت مخاطبین</span>
-                    <span>📞 تاریخچه تماس</span>
-                    <span>📊 گزارش‌گیری</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="project-card" data-tech="python tkinter">
-            <div class="project-icon custom">
-                <i class="fas fa-tools"></i>
-            </div>
-            <div class="project-info">
-                <h3>پروژه‌های سفارشی</h3>
-                <p>اپلیکیشن‌های متنوع</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Tkinter</span>
-                    <span class="tag">Custom</span>
-                </div>
-                <div class="project-features">
-                    <span>🎯 نیازمحور</span>
-                    <span>⚡ بهینه</span>
-                    <span>🔧 قابل توسعه</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="gallery-footer">
-        <p>✅ <strong>۱۴ پروژه عملی</strong> • ۱۱ پروژه با <strong>فایل .exe</strong> • ۹ پروژه با <strong>پایگاه داده</strong></p>
-    </div>
-</section>
-    </main>
-
-    <footer>
-        <section id="contact">
-            <h2>📞 تماس با من</h2>
-            <div class="contact-info">
-                <p>📧 ایمیل: sara_111174@yahoo.com</p>
-                <p>📍 موقعیت: ایران - تبریز</p>
+        <!-- ==================== گالری پروژه‌ها ==================== -->
+        <section id="projects-gallery">
+            <h2><i class="fas fa-rocket"></i> گالری پروژه‌های من</h2>
+            <p>۱۴ پروژه عملی که با Python, Tkinter و Flask توسعه دادم</p>
+            
+            <!-- فیلترهای تکنولوژی -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">همه پروژه‌ها (14)</button>
+                <button class="filter-btn" data-filter="python">پایتون</button>
+                <button class="filter-btn" data-filter="tkinter">Tkinter</button>
+                <button class="filter-btn" data-filter="exe">فایل .exe</button>
+                <button class="filter-btn" data-filter="flask">Flask</button>
+                <button class="filter-btn" data-filter="javascript">جاوااسکریپت</button>
+                <button class="filter-btn" data-filter="database">پایگاه داده</button>
             </div>
             
-            <!-- فرم تماس -->
-            <div class="contact-form">
-                <h3>📩 ارسال پیام</h3>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">نام شما:</label>
-                        <input type="text" id="name" name="from_name" required>
+            <!-- گالری کامل -->
+            <div class="gallery-grid">
+                <!-- پروژه ۱ -->
+                <div class="project-card" data-tech="python tkinter exe database">
+                    <div class="project-icon clinic">
+                        <i class="fas fa-hospital-alt"></i>
                     </div>
-                    <div class="form-group">
-                        <label for="email">ایمیل شما:</label>
-                        <input type="email" id="email" name="from_email" required>
+                    <div class="project-info">
+                        <h3>ClinicManager®</h3>
+                        <p>سیستم مدیریت کامل کلینیک پزشکی</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Tkinter</span>
+                            <span class="tag">.exe</span>
+                            <span class="tag">SQLite</span>
+                        </div>
+                        <div class="project-features">
+                            <span><i class="fas fa-chart-bar"></i> داشبورد مدیریت</span>
+                            <span><i class="fas fa-users"></i> مدیریت بیماران</span>
+                            <span><i class="fas fa-prescription"></i> سیستم نسخه‌نویسی</span>
+                        </div>
+                        <button class="details-btn" onclick="showProjectDetails('clinic')">
+                            <i class="fas fa-info-circle"></i> جزئیات بیشتر
+                        </button>
                     </div>
-                    <div class="form-group">
-                        <label for="message">پیام شما:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <!-- پروژه ۲ -->
+                <div class="project-card" data-tech="python tkinter exe database">
+                    <div class="project-icon crm">
+                        <i class="fas fa-users-cog"></i>
                     </div>
-                    <button type="submit">ارسال پیام</button>
-                </form>
-                <div id="form-message"></div>
+                    <div class="project-info">
+                        <h3>CRM پیشرفته</h3>
+                        <p>سیستم مدیریت ارتباط با مشتریان</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Tkinter</span>
+                            <span class="tag">.exe</span>
+                            <span class="tag">SQLite</span>
+                        </div>
+                        <div class="project-features">
+                            <span><i class="fas fa-chart-line"></i> گزارش‌گیری پیشرفته</span>
+                            <span><i class="fas fa-calendar-alt"></i> مدیریت قرارها</span>
+                            <span><i class="fas fa-money-bill-wave"></i> سیستم مالی</span>
+                        </div>
+                        <button class="details-btn" onclick="showProjectDetails('crm')">
+                            <i class="fas fa-info-circle"></i> جزئیات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- پروژه ۳ -->
+                <div class="project-card" data-tech="python tkinter exe">
+                    <div class="project-icon file">
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>FileMaster Pro®</h3>
+                        <p>مدیریت هوشمند فایل‌ها</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Tkinter</span>
+                            <span class="tag">.exe</span>
+                            <span class="tag">OS Module</span>
+                        </div>
+                        <div class="project-features">
+                            <span><i class="fas fa-search"></i> جستجوی پیشرفته</span>
+                            <span><i class="fas fa-folder"></i> دسته‌بندی خودکار</span>
+                            <span><i class="fas fa-bolt"></i> عملیات batch</span>
+                        </div>
+                        <button class="details-btn" onclick="showProjectDetails('filemaster')">
+                            <i class="fas fa-info-circle"></i> جزئیات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- پروژه ۴ -->
+                <div class="project-card" data-tech="python tkinter exe">
+                    <div class="project-icon pdf">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>PDF_PROJECT®</h3>
+                        <p>ابزارهای حرفه‌ای پردازش PDF</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Tkinter</span>
+                            <span class="tag">.exe</span>
+                            <span class="tag">PyPDF2</span>
+                        </div>
+                        <div class="project-features">
+                            <span><i class="fas fa-link"></i> ادغام PDF</span>
+                            <span><i class="fas fa-cut"></i> تقسیم PDF</span>
+                            <span><i class="fas fa-lock"></i> رمزگذاری</span>
+                        </div>
+                        <button class="details-btn" onclick="showProjectDetails('pdf')">
+                            <i class="fas fa-info-circle"></i> جزئیات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- پروژه ۵ -->
+                <div class="project-card" data-tech="python tkinter exe">
+                    <div class="project-icon invoice">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>InvoiceGenerator</h3>
+                        <p>سیستم تولید فاکتور خودکار</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Tkinter</span>
+                            <span class="tag">.exe</span>
+                        </div>
+                        <div class="project-features">
+                            <span><i class="fas fa-file-alt"></i> قالب‌های آماده</span>
+                            <span><i class="fas fa-calculator"></i> محاسبات مالی</span>
+                            <span><i class="fas fa-print"></i> خروجی PDF</span>
+                        </div>
+                        <button class="details-btn" onclick="showProjectDetails('invoice')">
+                            <i class="fas fa-info-circle"></i> جزئیات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- پروژه ۶ -->
+                <div class="project-card" data-tech="python tkinter exe">
+                    <div class="project-icon todo">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>TO-DO-PROJECT®</h3>
+                        <p>مدیریت کارها و پروژه‌ها</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Tkinter</span>
+                            <span class="tag">.exe</span>
+                        </div>
+                        <div class="project-features">
+                            <span><i class="fas fa-bell"></i> یادآور هوشمند</span>
+                            <span><i class="fas fa-tags"></i> دسته‌بندی</span>
+                            <span><i class="fas fa-chart-pie"></i> پیشرفت پروژه</span>
+                        </div>
+                        <button class="details-btn" onclick="showProjectDetails('todo')">
+                            <i class="fas fa-info-circle"></i> جزئیات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- پروژه ۷ -->
+                <div class="project-card" data-tech="python tkinter exe">
+                    <div class="project-icon store">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>PROJECT_STORE®</h3>
+                        <p>سیستم فروشگاه و انبار</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Tkinter</span>
+                            <span class="tag">.exe</span>
+                        </div>
+                        <div class="project-features">
+                            <span><i class="fas fa-boxes"></i> مدیریت موجودی</span>
+                            <span><i class="fas fa-receipt"></i> صدور فاکتور</span>
+                            <span><i class="fas fa-chart-bar"></i> گزارش فروش</span>
+                        </div>
+                        <button class="details-btn" onclick="showProjectDetails('store')">
+                            <i class="fas fa-info-circle"></i> جزئیات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- پروژه ۸ -->
+                <div class="project-card" data-tech="python flask javascript">
+                    <div class="project-icon web">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>github-pages</h3>
+                        <p>پروژه‌های تحت وب</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML/CSS</span>
+                        </div>
+                        <div class="project-features">
+                            <span><i class="fas fa-laptop-code"></i> وب اپلیکیشن</span>
+                            <span><i class="fas fa-mobile-alt"></i> ریسپانسیو</span>
+                            <span><i class="fas fa-bolt"></i> API</span>
+                        </div>
+                        <button class="details-btn" onclick="showProjectDetails('web')">
+                            <i class="fas fa-info-circle"></i> جزئیات بیشتر
+                        </button>
+                    </div>
+                </div>
             </div>
-
-            <!-- لینک مدیریت پیام‌ها -->
-            <div class="admin-link">
-                <a href="javascript:void(0)" onclick="showLogin()">🔐 مدیریت پیام‌ها</a>
+            
+            <!-- دکمه نمایش پروژه‌های بیشتر -->
+            <div class="show-more-container">
+                <button id="show-more-btn" onclick="toggleMoreProjects()">
+                    <i class="fas fa-chevron-down"></i> نمایش پروژه‌های بیشتر
+                </button>
+                
+                <!-- پروژه‌های مخفی (مخفی شده) -->
+                <div id="more-projects" class="hidden-projects">
+                    <!-- پروژه ۹ -->
+                    <div class="project-card" data-tech="python tkinter exe">
+                        <div class="project-icon shopping">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>shopping®</h3>
+                            <p>اپلیکیشن فروشگاهی</p>
+                            <div class="tech-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Tkinter</span>
+                                <span class="tag">.exe</span>
+                            </div>
+                            <div class="project-features">
+                                <span><i class="fas fa-shopping-cart"></i> سبد خرید</span>
+                                <span><i class="fas fa-user"></i> پنل کاربری</span>
+                                <span><i class="fas fa-box"></i> مدیریت محصولات</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- پروژه ۱۰ -->
+                    <div class="project-card" data-tech="javascript html-css">
+                        <div class="project-icon notes">
+                            <i class="fas fa-book-medical"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>دفترچه پزشکی حرفه‌ای</h3>
+                            <p>برنامه تحت وب مدیریت یادداشت‌ها</p>
+                            <div class="tech-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">HTML/CSS</span>
+                                <span class="tag">LocalStorage</span>
+                            </div>
+                            <div class="project-features">
+                                <span><i class="fas fa-edit"></i> یادداشت‌نویسی</span>
+                                <span><i class="fas fa-search"></i> جستجوی پیشرفته</span>
+                                <span><i class="fas fa-folder"></i> دسته‌بندی</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- پروژه ۱۱ -->
+                    <div class="project-card" data-tech="python">
+                        <div class="project-icon bot">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>بات هوش مصنوعی</h3>
+                            <p>چت‌بات و ابزارهای هوشمند</p>
+                            <div class="tech-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">NLP</span>
+                            </div>
+                            <div class="project-features">
+                                <span><i class="fas fa-comments"></i> پردازش زبان</span>
+                                <span><i class="fas fa-brain"></i> یادگیری ماشین</span>
+                                <span><i class="fas fa-cogs"></i> ابزارهای خودکار</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- پروژه ۱۲ -->
+                    <div class="project-card" data-tech="javascript">
+                        <div class="project-icon filejs">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>File Manager (JS)</h3>
+                            <p>مدیریت فایل‌ها با جاوااسکریپت</p>
+                            <div class="tech-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">File System</span>
+                            </div>
+                            <div class="project-features">
+                                <span><i class="fas fa-folder"></i> مدیریت فایل</span>
+                                <span><i class="fas fa-bolt"></i> عملیات سریع</span>
+                                <span><i class="fas fa-wrench"></i> ابزارهای توسعه</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- پروژه ۱۳ -->
+                    <div class="project-card" data-tech="python tkinter">
+                        <div class="project-icon crm2">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>CRM استاندارد</h3>
+                            <p>سیستم مدیریت مشتریان پایه</p>
+                            <div class="tech-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Tkinter</span>
+                            </div>
+                            <div class="project-features">
+                                <span><i class="fas fa-users"></i> مدیریت مخاطبین</span>
+                                <span><i class="fas fa-phone"></i> تاریخچه تماس</span>
+                                <span><i class="fas fa-chart-bar"></i> گزارش‌گیری</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- پروژه ۱۴ -->
+                    <div class="project-card" data-tech="python tkinter">
+                        <div class="project-icon custom">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>پروژه‌های سفارشی</h3>
+                            <p>اپلیکیشن‌های متنوع</p>
+                            <div class="tech-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Tkinter</span>
+                                <span class="tag">Custom</span>
+                            </div>
+                            <div class="project-features">
+                                <span><i class="fas fa-bullseye"></i> نیازمحور</span>
+                                <span><i class="fas fa-bolt"></i> بهینه</span>
+                                <span><i class="fas fa-expand"></i> قابل توسعه</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-footer">
+                <p><i class="fas fa-check-circle"></i> <strong>۱۴ پروژه عملی</strong> • <i class="fas fa-file-excel"></i> ۱۱ پروژه با <strong>فایل .exe</strong> • <i class="fas fa-database"></i> ۹ پروژه با <strong>پایگاه داده</strong></p>
             </div>
         </section>
-    </footer>
 
+        <!-- ==================== ساعت آنالوگ ==================== -->
+        <section id="clock">
+            <h2><i class="fas fa-clock"></i> ساعت آنالوگ</h2>
+            <div class="clock-container">
+                <div class="clock">
+                    <div class="hour-hand" id="hour-hand"></div>
+                    <div class="minute-hand" id="minute-hand"></div>
+                    <div class="second-hand" id="second-hand"></div>
+                    <div class="center-dot"></div>
+                    
+                    <!-- اعداد ساعت -->
+                    <div class="number number-12">12</div>
+                    <div class="number number-1">1</div>
+                    <div class="number number-2">2</div>
+                    <div class="number number-3">3</div>
+                    <div class="number number-4">4</div>
+                    <div class="number number-5">5</div>
+                    <div class="number number-6">6</div>
+                    <div class="number number-7">7</div>
+                    <div class="number number-8">8</div>
+                    <div class="number number-9">9</div>
+                    <div class="number number-10">10</div>
+                    <div class="number number-11">11</div>
+                </div>
+                <div class="digital-clock" id="digital-clock"></div>
+            </div>
+        </section>
+
+        <!-- ==================== ماشین حساب ==================== -->
+        <section id="calculator">
+            <h2><i class="fas fa-calculator"></i> ماشین حساب جاوااسکریپت</h2>
+            <div class="calc">
+                <input type="text" id="calc-input" readonly>
+                <div class="calc-buttons">
+                    <button onclick="addToCalc('7')">7</button>
+                    <button onclick="addToCalc('8')">8</button>
+                    <button onclick="addToCalc('9')">9</button>
+                    <button onclick="addToCalc('+')">+</button>
+                    
+                    <button onclick="addToCalc('4')">4</button>
+                    <button onclick="addToCalc('5')">5</button>
+                    <button onclick="addToCalc('6')">6</button>
+                    <button onclick="addToCalc('-')">-</button>
+                    
+                    <button onclick="addToCalc('1')">1</button>
+                    <button onclick="addToCalc('2')">2</button>
+                    <button onclick="addToCalc('3')">3</button>
+                    <button onclick="addToCalc('*')">*</button>
+                    
+                    <button onclick="addToCalc('0')">0</button>
+                    <button onclick="clearCalc()">C</button>
+                    <button onclick="calculate()">=</button>
+                    <button onclick="addToCalc('/')">/</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== فوتر و تماس ==================== -->
+    <!-- ==================== فوتر و تماس ==================== -->
+<footer>
+    <section id="contact">
+        <h2><i class="fas fa-envelope"></i> تماس با من</h2>
+        
+        <!-- اطلاعات تماس -->
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <p class="contact-label">ایمیل:</p>
+                    <p class="contact-value"><a href="mailto:sara_111174@yahoo.com">sara_111174@yahoo.com</a></p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <p class="contact-label">موقعیت:</p>
+                    <p class="contact-value">ایران - تبریز</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <div>
+                    <p class="contact-label">گیت‌هاب:</p>
+                    <p class="contact-value"><a href="https://github.com/safa666dark" target="_blank" rel="noopener">safa666dark</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فرم تماس -->
+        <div class="contact-form">
+            <h3><i class="fas fa-paper-plane"></i> ارسال پیام</h3>
+            <form id="contact-form-element">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> نام شما:</label>
+                    <input type="text" id="name" name="from_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> ایمیل شما:</label>
+                    <input type="email" id="email" name="from_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> پیام شما:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i> ارسال پیام
+                </button>
+            </form>
+            <div id="form-message"></div>
+        </div>
+
+        <!-- لینک مدیریت پیام‌ها -->
+        <div class="admin-link">
+            <a href="javascript:void(0)" onclick="showLogin()">
+                <i class="fas fa-lock"></i> مدیریت پیام‌ها
+            </a>
+        </div>
+    </section>
+</footer>
+
+    <!-- ==================== مودال‌ها ==================== -->
+    
     <!-- پاپ‌آپ لاگین -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeLogin()">&times;</span>
-            <h3>🔐 ورود به مدیریت پیام‌ها</h3>
+            <h3><i class="fas fa-lock"></i> ورود به مدیریت پیام‌ها</h3>
             <form onsubmit="checkPassword(event)">
                 <div class="form-group">
                     <label for="password">رمز عبور:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <button type="submit">ورود</button>
+                <button type="submit"><i class="fas fa-sign-in-alt"></i> ورود</button>
             </form>
         </div>
     </div>
 
-    <!-- اسکریپت‌ها -->
+    <!-- مودال جزئیات پروژه -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProjectModal()">&times;</span>
+            <div id="project-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- ==================== اسکریپت‌ها ==================== -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // ========== تنظیمات اولیه ==========
         // Initialize EmailJS
         emailjs.init("_r2ki4Y9B46uAA7NX");
         
-        // مدیریت فرم تماس
+        // ========== دکمه بازگشت به بالا ==========
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+
+        // ========== مدیریت فرم تماس ==========
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
             
             const messageDiv = document.getElementById('form-message');
-            messageDiv.innerHTML = '⏳ در حال ارسال پیام...';
-            messageDiv.style.color = 'blue';
-            messageDiv.style.textAlign = 'center';
-            messageDiv.style.marginTop = '1rem';
-            messageDiv.style.padding = '1rem';
-            messageDiv.style.background = '#f8f9fa';
-            messageDiv.style.borderRadius = '5px';
+            messageDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> در حال ارسال پیام...';
+            messageDiv.className = 'message-loading';
 
             emailjs.sendForm('service_7j5e2s6', 'template_p2n17k9', this)
                 .then(function() {
-                    messageDiv.innerHTML = '✅ پیام شما با موفقیت ارسال شد! به زودی پاسخ می‌دم.';
-                    messageDiv.style.color = 'green';
+                    messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> پیام شما با موفقیت ارسال شد! به زودی پاسخ می‌دم.';
+                    messageDiv.className = 'message-success';
                     document.getElementById('contact-form').reset();
                 }, function(error) {
-                    messageDiv.innerHTML = '❌ خطا در ارسال پیام. لطفاً مستقیماً به sara_111174@yahoo.com ایمیل بزنید.';
-                    messageDiv.style.color = 'red';
+                    messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> خطا در ارسال پیام. لطفاً مستقیماً ایمیل بزنید.';
+                    messageDiv.className = 'message-error';
                     console.log('خطای EmailJS:', error);
                 });
         });
 
-        // مدیریت لاگین
+        // ========== مدیریت لاگین ==========
         function showLogin() {
             document.getElementById('loginModal').style.display = 'block';
         }
@@ -556,43 +636,28 @@
             }
         }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById('loginModal');
-            if (event.target === modal) {
-                closeLogin();
-            }
-        }
-
-        // متغیرهای ماشین حساب
+        // ========== ماشین حساب ==========
         let calcInput = document.getElementById('calc-input');
         
-        // اگر المنت وجود داشت
-        if (calcInput) {
-            // اضافه کردن عدد به ماشین حساب
-            function addToCalc(value) {
-                calcInput.value += value;
-            }
-            
-            // پاک کردن ماشین حساب
-            function clearCalc() {
-                calcInput.value = '';
-            }
-            
-            // محاسبه نتیجه
-            function calculate() {
-                try {
-                    // استفاده از Function برای امنیت بیشتر
-                    let result = Function('return ' + calcInput.value)();
-                    
-                    // چک کردن اگر عدد خروجی باشه
-                    if (typeof result === 'number' && !isNaN(result)) {
-                        calcInput.value = result;
-                    } else {
-                        calcInput.value = 'خطا!';
-                    }
-                } catch (error) {
+        function addToCalc(value) {
+            calcInput.value += value;
+        }
+        
+        function clearCalc() {
+            calcInput.value = '';
+        }
+        
+        function calculate() {
+            try {
+                let result = Function('return ' + calcInput.value)();
+                
+                if (typeof result === 'number' && !isNaN(result)) {
+                    calcInput.value = result;
+                } else {
                     calcInput.value = 'خطا!';
                 }
+            } catch (error) {
+                calcInput.value = 'خطا!';
             }
         }
 
@@ -603,12 +668,10 @@
             const minutes = now.getMinutes();
             const seconds = now.getSeconds();
             
-            // محاسبه درجه‌ها
             const hourDeg = (hours * 30) + (minutes * 0.5);
             const minuteDeg = (minutes * 6) + (seconds * 0.1);
             const secondDeg = seconds * 6;
             
-            // اعمال چرخش به عقربه‌ها
             const hourHand = document.getElementById('hour-hand');
             const minuteHand = document.getElementById('minute-hand');
             const secondHand = document.getElementById('second-hand');
@@ -619,7 +682,6 @@
                 secondHand.style.transform = `rotate(${secondDeg}deg)`;
             }
             
-            // ساعت دیجیتال
             const digitalClock = document.getElementById('digital-clock');
             if (digitalClock) {
                 const formatTime = (num) => num < 10 ? '0' + num : num;
@@ -631,10 +693,134 @@
             }
         }
         
-        // به‌روزرسانی هر ثانیه
         if (document.getElementById('hour-hand')) {
             setInterval(updateClock, 1000);
-            updateClock(); // اجرای اولیه
+            updateClock();
+        }
+
+        // ========== فیلتر گالری پروژه‌ها ==========
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // حذف کلاس active از همه دکمه‌ها
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // اضافه کردن کلاس active به دکمه کلیک شده
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                filterProjects(filter);
+            });
+        });
+
+        function filterProjects(filter) {
+            const projects = document.querySelectorAll('.project-card');
+            
+            projects.forEach(project => {
+                if (filter === 'all') {
+                    project.style.display = 'flex';
+                } else {
+                    const tech = project.dataset.tech;
+                    if (tech.includes(filter)) {
+                        project.style.display = 'flex';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // ========== نمایش پروژه‌های بیشتر ==========
+        function toggleMoreProjects() {
+            const moreProjects = document.getElementById('more-projects');
+            const showMoreBtn = document.getElementById('show-more-btn');
+            
+            if (moreProjects.style.display === 'none' || moreProjects.style.display === '') {
+                moreProjects.style.display = 'grid';
+                showMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> نمایش پروژه‌های کمتر';
+            } else {
+                moreProjects.style.display = 'none';
+                showMoreBtn.innerHTML = '<i class="fas fa-chevron-down"></i> نمایش پروژه‌های بیشتر';
+            }
+        }
+
+        // مخفی کردن پروژه‌های اضافی در ابتدا
+        document.addEventListener('DOMContentLoaded', function() {
+            const moreProjects = document.getElementById('more-projects');
+            if (moreProjects) {
+                moreProjects.style.display = 'none';
+            }
+        });
+
+        // ========== مودال جزئیات پروژه ==========
+        function showProjectDetails(projectId) {
+            const projectDetails = {
+                clinic: {
+                    title: "ClinicManager®",
+                    description: "سیستم مدیریت کامل کلینیک پزشکی با امکانات پیشرفته مدیریت بیماران، نوبت‌دهی، نسخه‌نویسی و گزارش‌گیری.",
+                    features: ["داشبورد مدیریتی", "سیستم نوبت‌دهی", "مدیریت پرونده بیماران", "نسخه‌نویسی الکترونیک", "گزارش‌گیری آماری"],
+                    tech: ["Python", "Tkinter", "SQLite", ".exe"],
+                    status: "تکمیل شده"
+                },
+                crm: {
+                    title: "CRM پیشرفته",
+                    description: "سیستم مدیریت ارتباط با مشتریان با قابلیت‌های پیگیری فرصت‌های فروش، مدیریت قرارها و گزارش‌گیری تحلیلی.",
+                    features: ["مدیریت مخاطبین", "پیگیری فروش", "تقویم قرارها", "سیستم پیام‌رسانی", "گزارش‌گیری پیشرفته"],
+                    tech: ["Python", "Tkinter", "SQLite", ".exe"],
+                    status: "تکمیل شده"
+                }
+                // می‌تونی جزئیات بقیه پروژه‌ها رو هم اضافه کنی
+            };
+            
+            const project = projectDetails[projectId] || {
+                title: "پروژه",
+                description: "جزئیات این پروژه به زودی اضافه می‌شود.",
+                features: ["در حال توسعه"],
+                tech: ["Python"],
+                status: "در حال توسعه"
+            };
+            
+            const modalContent = document.getElementById('project-modal-content');
+            modalContent.innerHTML = `
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                
+                <h4><i class="fas fa-star"></i> ویژگی‌های کلیدی:</h4>
+                <ul>
+                    ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                
+                <h4><i class="fas fa-cogs"></i> تکنولوژی‌ها:</h4>
+                <div class="modal-tech-tags">
+                    ${project.tech.map(tech => `<span class="modal-tag">${tech}</span>`).join('')}
+                </div>
+                
+                <p class="project-status"><strong>وضعیت:</strong> ${project.status}</p>
+                
+                <button class="close-modal-btn" onclick="closeProjectModal()">
+                    <i class="fas fa-times"></i> بستن
+                </button>
+            `;
+            
+            document.getElementById('projectModal').style.display = 'block';
+        }
+
+        function closeProjectModal() {
+            document.getElementById('projectModal').style.display = 'none';
+        }
+
+        // ========== بستن مودال با کلیک خارج ==========
+        window.onclick = function(event) {
+            const loginModal = document.getElementById('loginModal');
+            const projectModal = document.getElementById('projectModal');
+            
+            if (event.target === loginModal) {
+                closeLogin();
+            }
+            if (event.target === projectModal) {
+                closeProjectModal();
+            }
         }
     </script>
 </body>
