@@ -275,8 +275,8 @@
             }
         }
 
-                // ========== ساعت آنالوگ ==========
-                function updateClock() {
+        // ========== ساعت آنالوگ ==========
+        function updateClock() {
             const now = new Date();
             const hours = now.getHours() % 12;
             const minutes = now.getMinutes();
@@ -288,18 +288,33 @@
             const secondDeg = seconds * 6;
             
             // اعمال چرخش به عقربه‌ها
-            document.getElementById('hour-hand').style.transform = `rotate(${hourDeg}deg)`;
-            document.getElementById('minute-hand').style.transform = `rotate(${minuteDeg}deg)`;
-            document.getElementById('second-hand').style.transform = `rotate(${secondDeg}deg)`;
+            const hourHand = document.getElementById('hour-hand');
+            const minuteHand = document.getElementById('minute-hand');
+            const secondHand = document.getElementById('second-hand');
+            
+            if (hourHand && minuteHand && secondHand) {
+                hourHand.style.transform = `rotate(${hourDeg}deg)`;
+                minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
+                secondHand.style.transform = `rotate(${secondDeg}deg)`;
+            }
             
             // ساعت دیجیتال
-            const digitalTime = now.toLocaleTimeString('en-US');
-            document.getElementById('digital-clock').textContent = digitalTime;
+            const digitalClock = document.getElementById('digital-clock');
+            if (digitalClock) {
+                const formatTime = (num) => num < 10 ? '0' + num : num;
+                const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
+                const displayHours = now.getHours() % 12 || 12;
+                
+                const digitalTime = `${formatTime(displayHours)}:${formatTime(minutes)}:${formatTime(seconds)} ${ampm}`;
+                digitalClock.textContent = digitalTime;
+            }
         }
         
         // به‌روزرسانی هر ثانیه
-        setInterval(updateClock, 1000);
-        updateClock(); // اجرای اولیه
+        if (document.getElementById('hour-hand')) {
+            setInterval(updateClock, 1000);
+            updateClock(); // اجرای اولیه
+        }
     </script>
 </body>
 </html>
