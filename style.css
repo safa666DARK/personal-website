@@ -263,8 +263,14 @@ button[type="submit"]:hover {
     margin-bottom: 20px;
     background: #f8fafc;
     direction: ltr;
+    box-sizing: border-box; /* اضافه شد */
+    outline: none; /* برای جلوگیری از outline پیش‌فرض مرورگر */
+    transition: border-color 0.3s ease;
 }
 
+#calc-input:focus {
+    border-color: #5a67d8; /* تغییر رنگ هنگام فوکوس */
+}
 .calc-buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
