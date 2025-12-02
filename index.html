@@ -468,31 +468,30 @@
             <div class="calc">
                 <input type="text" id="calc-input" readonly>
                 <div class="calc-buttons">
-                    <button onclick="addToCalc('7')">7</button>
-                    <button onclick="addToCalc('8')">8</button>
-                    <button onclick="addToCalc('9')">9</button>
-                    <button onclick="addToCalc('+')">+</button>
+                    <button data-value="7">7</button>
+                    <button data-value="8">8</button>
+                    <button data-value="9">9</button>
+                    <button data-value="+">+</button>
                     
-                    <button onclick="addToCalc('4')">4</button>
-                    <button onclick="addToCalc('5')">5</button>
-                    <button onclick="addToCalc('6')">6</button>
-                    <button onclick="addToCalc('-')">-</button>
+                    <button data-value="4">4</button>
+                    <button data-value="5">5</button>
+                    <button data-value="6">6</button>
+                    <button data-value="-">-</button>
                     
-                    <button onclick="addToCalc('1')">1</button>
-                    <button onclick="addToCalc('2')">2</button>
-                    <button onclick="addToCalc('3')">3</button>
-                    <button onclick="addToCalc('*')">*</button>
+                    <button data-value="1">1</button>
+                    <button data-value="2">2</button>
+                    <button data-value="3">3</button>
+                    <button data-value="*">*</button>
                     
-                    <button onclick="addToCalc('0')">0</button>
-                    <button onclick="clearCalc()">C</button>
-                    <button onclick="calculate()">=</button>
-                    <button onclick="addToCalc('/')">/</button>
+                    <button data-value="0">0</button>
+                    <button data-clear>C</button>
+                    <button data-equals>=</button>
+                    <button data-value="/">/</button>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ==================== فوتر و تماس ==================== -->
     <!-- ==================== فوتر و تماس ==================== -->
 <footer>
     <section id="contact">
@@ -554,8 +553,6 @@
         </div>
     </section>
 </footer>
-
-    <!-- ==================== مودال‌ها ==================== -->
     
     <!-- پاپ‌آپ لاگین -->
     <div id="loginModal" class="modal">
@@ -636,67 +633,56 @@
             }
         }
 
-        // ========== ماشین حساب ==========
-        let calcInput = document.getElementById('calc-input');
-        
-        function addToCalc(value) {
-            calcInput.value += value;
-        }
-        
-        function clearCalc() {
-            calcInput.value = '';
-        }
-        
-        function calculate() {
-            try {
-                let result = Function('return ' + calcInput.value)();
-                
-                if (typeof result === 'number' && !isNaN(result)) {
-                    calcInput.value = result;
-                } else {
-                    calcInput.value = 'خطا!';
-                }
-            } catch (error) {
-                calcInput.value = 'خطا!';
-            }
-        }
-
-        // ========== ساعت آنالوگ ==========
-        function updateClock() {
-            const now = new Date();
-            const hours = now.getHours() % 12;
-            const minutes = now.getMinutes();
-            const seconds = now.getSeconds();
+        // ========== ماشین حساب - نسخه EVENT LISTENER ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const calcInput = document.getElementById('calc-input');
+            const buttons = document.querySelectorAll('.calc-buttons button');
             
-            const hourDeg = (hours * 30) + (minutes * 0.5);
-            const minuteDeg = (minutes * 6) + (seconds * 0.1);
-            const secondDeg = seconds * 6;
+            console.log('ماشین حساب لود شد...');
+            console.log('ورودی:', calcInput);
+            console.log('تعداد دکمه‌ها:', buttons.length);
             
-            const hourHand = document.getElementById('hour-hand');
-            const minuteHand = document.getElementById('minute-hand');
-            const secondHand = document.getElementById('second-hand');
-            
-            if (hourHand && minuteHand && secondHand) {
-                hourHand.style.transform = `rotate(${hourDeg}deg)`;
-                minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
-                secondHand.style.transform = `rotate(${secondDeg}deg)`;
+            if (!calcInput) {
+                console.error('ورودی پیدا نشد!');
+                return;
             }
             
-            const digitalClock = document.getElementById('digital-clock');
-            if (digitalClock) {
-                const formatTime = (num) => num < 10 ? '0' + num : num;
-                const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
-                const displayHours = now.getHours() % 12 || 12;
-                
-                const digitalTime = `${formatTime(displayHours)}:${formatTime(minutes)}:${formatTime(seconds)} ${ampm}`;
-                digitalClock.textContent = digitalTime;
-            }
-        }
-        
-        if (document.getElementById('hour-hand')) {
-            setInterval(updateClock, 1000);
-            updateClock();
-        }
+            // اضافه کردن عدد/عملگر
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    const isClear = this.hasAttribute('data-clear');
+                    const isEquals = this.hasAttribute('data-equals');
+                    
+                    if (value) {
+                        calcInput.value += value;
+                        console.log('اضافه شد:', value);
+                    } else if (isClear) {
+                        calcInput.value = '';
+                        console.log('پاک شد');
+                    } else if (isEquals) {
+                        try {
+                            if (!calcInput.value) return;
+                            
+                            const result = Function('"use strict"; return (' + calcInput.value + ')')();
+                            
+                            if (typeof result === 'number' && !isNaN(result)) {
+                                calcInput.value = result;
+                                console.log('نتیجه:', result);
+                            } else {
+                                calcInput.value = 'خطا!';
+                            }
+                        } catch (error) {
+                            calcInput.value = 'خطا!';
+                            console.error('خطای محاسبه:', error);
+                        }
+                    }
+                });
+            });
+            
+            // تست: یه پیام توی Console
+            console.log('✅ ماشین حساب آماده! دکمه‌ها رو تست کن.');
+        });
 
         // ========== فیلتر گالری پروژه‌ها ==========
         document.querySelectorAll('.filter-btn').forEach(button => {
@@ -770,7 +756,6 @@
                     tech: ["Python", "Tkinter", "SQLite", ".exe"],
                     status: "تکمیل شده"
                 }
-                // می‌تونی جزئیات بقیه پروژه‌ها رو هم اضافه کنی
             };
             
             const project = projectDetails[projectId] || {
@@ -810,7 +795,6 @@
             document.getElementById('projectModal').style.display = 'none';
         }
 
-        // ========== بستن مودال با کلیک خارج ==========
         window.onclick = function(event) {
             const loginModal = document.getElementById('loginModal');
             const projectModal = document.getElementById('projectModal');
@@ -823,5 +807,126 @@
             }
         }
     </script>
+
+    <script>
+    // ========== ساعت آنالوگ - نسخه قطعی ==========
+    (function() {
+        console.log('اسکریپت ساعت لود شد...');
+        
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            
+            // برای ساعت آنالوگ (12 ساعته)
+            const hourDeg = ((hours % 12) * 30) + (minutes * 0.5);
+            const minuteDeg = (minutes * 6) + (seconds * 0.1);
+            const secondDeg = seconds * 6;
+            
+            // اعمال چرخش
+            const hourHand = document.getElementById('hour-hand');
+            const minuteHand = document.getElementById('minute-hand');
+            const secondHand = document.getElementById('second-hand');
+            
+            if (hourHand && minuteHand && secondHand) {
+                hourHand.style.transform = `rotate(${hourDeg}deg)`;
+                minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
+                secondHand.style.transform = `rotate(${secondDeg}deg)`;
+                console.log('عقربه‌ها آپدیت شد:', hourDeg, minuteDeg, secondDeg);
+            }
+            
+            // ساعت دیجیتال
+            const digitalClock = document.getElementById('digital-clock');
+            if (digitalClock) {
+                const formatTime = (num) => num < 10 ? '0' + num : num;
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                const displayHours = hours % 12 || 12;
+                
+                digitalClock.textContent = 
+                    `${formatTime(displayHours)}:${formatTime(minutes)}:${formatTime(seconds)} ${ampm}`;
+            }
+        }
+        
+        // منتظر لود کامل صفحه بمان
+        window.addEventListener('load', function() {
+            console.log('صفحه کامل لود شد...');
+            
+            if (document.getElementById('hour-hand')) {
+                console.log('✅ المان ساعت پیدا شد!');
+                setInterval(updateClock, 1000);
+                updateClock(); // اجرای اولیه
+            } else {
+                console.error('❌ المان ساعت پیدا نشد!');
+                
+                const testDiv = document.createElement('div');
+                testDiv.innerHTML = '<div style="color:red;padding:20px;">⚠️ ساعت کار نمی‌کنه! المان‌ها وجود ندارن!</div>';
+                document.getElementById('clock').appendChild(testDiv);
+            }
+        });
+        
+        setTimeout(function() {
+            if (!document.getElementById('hour-hand')) {
+                console.warn('هنوز المان ساعت پیدا نشد...');
+            }
+        }, 100);
+    })();
+    </script>
+
+    <script>
+        // ========== ماشین حساب  ==========
+        (function() {
+            console.log('🔢 ماشین حساب در حال راه‌اندازی...');
+            
+            // کمی تاخیر برای مطمئن شدن از لود DOM
+            setTimeout(function() {
+                const calcInput = document.getElementById('calc-input');
+                const buttonsContainer = document.querySelector('.calc-buttons');
+                
+                console.log('ورودی ماشین حساب:', calcInput);
+                console.log('کنتینر دکمه‌ها:', buttonsContainer);
+                
+                if (!calcInput || !buttonsContainer) {
+                    console.error('❌ المان‌های ماشین حساب پیدا نشدند!');
+                    return;
+                }
+                
+                // Event Delegation: یک listener برای کل دکمه‌ها
+                buttonsContainer.addEventListener('click', function(event) {
+                    const button = event.target;
+                    if (button.tagName !== 'BUTTON') return;
+                    
+                    const value = button.textContent;
+                    console.log('دکمه فشرده شد:', value);
+                    
+                    if (value === 'C') {
+                        calcInput.value = '';
+                    } else if (value === '=') {
+                        try {
+                            if (!calcInput.value) return;
+                            // محاسبه امن
+                            const result = new Function('return ' + calcInput.value)();
+                            calcInput.value = result;
+                            console.log('نتیجه:', result);
+                        } catch (error) {
+                            calcInput.value = 'خطا!';
+                            console.error('خطای محاسبه:', error);
+                        }
+                    } else {
+                        // عدد یا عملگر
+                        calcInput.value += value;
+                    }
+                });
+                
+                console.log('✅ ماشین حساب با موفقیت راه‌اندازی شد!');
+                console.log('دکمه‌های موجود:', buttonsContainer.children.length);
+                
+                // تست خودکار
+                calcInput.value = 'آماده!';
+                setTimeout(() => { calcInput.value = ''; }, 1000);
+                
+            }, 300); // تاخیر ۳۰۰ میلی‌ثانیه
+        })();
+        </script>
 </body>
 </html>

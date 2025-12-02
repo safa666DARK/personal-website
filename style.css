@@ -239,48 +239,76 @@ button[type="submit"]:hover {
     color: black;
 }
 
-/* استایل ماشین حساب */
+/* ماشین حساب */
 #calculator {
     margin-bottom: 2rem;
 }
 
 .calc {
+    max-width: 400px;
+    margin: 0 auto;
     background: white;
-    padding: 1rem;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 #calc-input {
     width: 100%;
-    padding: 0.75rem;
-    font-size: 1.2rem;
-    text-align: left;
-    margin-bottom: 1rem;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.5rem;
+    text-align: right;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background: #f8fafc;
     direction: ltr;
 }
 
 .calc-buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+    gap: 10px;
 }
 
 .calc-buttons button {
-    padding: 0.75rem;
-    font-size: 1rem;
+    padding: 15px;
+    font-size: 1.2rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background: #667eea;
     color: white;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
 }
 
 .calc-buttons button:hover {
     background: #764ba2;
+    transform: translateY(-2px);
+}
+
+.calc-buttons button:nth-child(12) { /* دکمه = */
+    background: #4CAF50;
+}
+
+.calc-buttons button:nth-child(12):hover {
+    background: #2E7D32;
+}
+
+.calc-buttons button:nth-child(11) { /* دکمه C */
+    background: #f44336;
+}
+
+.calc-buttons button:nth-child(11):hover {
+    background: #c62828;
+}
+
+.calc-buttons button[data-value="3"] {
+    background: #667eea !important; /* آبی */
+}
+
+.calc-buttons button[data-value="3"]:hover {
+    background: #764ba2 !important;
 }
 
 /* استایل ساعت */
@@ -306,29 +334,25 @@ button[type="submit"]:hover {
     background: white;
 }
 
-/* عقربه‌ها */
+/* عقربه‌های درست */
 .hour-hand, .minute-hand, .second-hand {
     position: absolute;
     background: #333;
-    border-radius: 5px;
     transform-origin: bottom center;
     left: 50%;
-    top: 50%;
+    bottom: 50%; /* مهم: اینجا تغییر کرد */
 }
 
 .hour-hand {
     width: 6px;
     height: 60px;
     margin-left: -3px;
-    margin-top: -60px;
-    background: #333;
 }
 
 .minute-hand {
     width: 4px;
     height: 80px;
     margin-left: -2px;
-    margin-top: -80px;
     background: #667eea;
 }
 
@@ -336,7 +360,6 @@ button[type="submit"]:hover {
     width: 2px;
     height: 90px;
     margin-left: -1px;
-    margin-top: -90px;
     background: #e74c3c;
 }
 
@@ -732,6 +755,11 @@ button[type="submit"]:hover {
 .details-btn:hover {
     opacity: 0.9;
     transform: scale(1.02);
+}
+
+#projectModal .modal-content {
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 /* ===== نمایش پروژه‌های بیشتر ===== */
