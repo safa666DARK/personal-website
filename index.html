@@ -494,80 +494,71 @@
 
     <!-- ==================== فوتر و تماس ==================== -->
 <footer>
-    <section id="contact">
-        <h2><i class="fas fa-envelope"></i> تماس با من</h2>
+    <!-- فرم تماس -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2>📨 تماس با من</h2>
+        <p>برای همکاری یا سؤال، پیام بفرستید:</p>
         
-        <!-- اطلاعات تماس -->
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <p class="contact-label">ایمیل:</p>
-                    <p class="contact-value"><a href="mailto:sara_111174@yahoo.com">sara_111174@yahoo.com</a></p>
-                </div>
+        <form 
+            action="https://formspree.io/f/xwpgbyav" 
+            method="POST"
+            id="contact-form"
+            class="contact-form"
+        >
+            <div class="form-group">
+                <label for="name">نام شما *</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="نام و نام خانوادگی" 
+                    required
+                >
             </div>
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                    <p class="contact-label">موقعیت:</p>
-                    <p class="contact-value">ایران - تبریز</p>
-                </div>
+            
+            <div class="form-group">
+                <label for="email">ایمیل شما *</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="example@email.com" 
+                    required
+                >
             </div>
-            <div class="contact-item">
-                <i class="fab fa-github"></i>
-                <div>
-                    <p class="contact-label">گیت‌هاب:</p>
-                    <p class="contact-value"><a href="https://github.com/safa666dark" target="_blank" rel="noopener">safa666dark</a></p>
-                </div>
+            
+            <div class="form-group">
+                <label for="message">پیام شما *</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="5" 
+                    placeholder="پیام خود را اینجا بنویسید..." 
+                    required
+                ></textarea>
             </div>
-        </div>
+            
+            <!-- ضد اسپم (مخفی) -->
+            <input type="text" name="_gotcha" style="display:none">
+            
+            <button type="submit" class="btn submit-btn">
+                <i class="fas fa-paper-plane"></i> ارسال پیام
+            </button>
+            
+            <div id="form-message" class="form-message"></div>
+        </form>
         
-        <!-- فرم تماس -->
-        <div class="contact-form">
-            <h3><i class="fas fa-paper-plane"></i> ارسال پیام</h3>
-            <form id="contact-form-element">
-                <div class="form-group">
-                    <label for="name"><i class="fas fa-user"></i> نام شما:</label>
-                    <input type="text" id="name" name="from_name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email"><i class="fas fa-envelope"></i> ایمیل شما:</label>
-                    <input type="email" id="email" name="from_email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message"><i class="fas fa-comment"></i> پیام شما:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit">
-                    <i class="fas fa-paper-plane"></i> ارسال پیام
-                </button>
-            </form>
-            <div id="form-message"></div>
-        </div>
-
-        <!-- لینک مدیریت پیام‌ها -->
-        <div class="admin-link">
-            <a href="javascript:void(0)" onclick="showLogin()">
-                <i class="fas fa-lock"></i> مدیریت پیام‌ها
+        <div class="contact-alternative">
+            <p>یا مستقیماً ایمیل بزنید به:</p>
+            <a href="mailto:sara.111174@yahoo.com" class="email-link">
+                <i class="fas fa-envelope"></i> sara.111174@yahoo.com
             </a>
         </div>
-    </section>
-</footer>
-    
-    <!-- پاپ‌آپ لاگین -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLogin()">&times;</span>
-            <h3><i class="fas fa-lock"></i> ورود به مدیریت پیام‌ها</h3>
-            <form onsubmit="checkPassword(event)">
-                <div class="form-group">
-                    <label for="password">رمز عبور:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit"><i class="fas fa-sign-in-alt"></i> ورود</button>
-            </form>
-        </div>
     </div>
+</section>
+
+</footer>
 
     <!-- مودال جزئیات پروژه -->
     <div id="projectModal" class="modal">
@@ -591,47 +582,70 @@
         });
 
         // ========== مدیریت فرم تماس ==========
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
             
-            const messageDiv = document.getElementById('form-message');
-            messageDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> در حال ارسال پیام...';
-            messageDiv.className = 'message-loading';
-
-            emailjs.sendForm('service_7j5e2s6', 'template_p2n17k9', this)
-                .then(function() {
-                    messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> پیام شما با موفقیت ارسال شد! به زودی پاسخ می‌دم.';
-                    messageDiv.className = 'message-success';
-                    document.getElementById('contact-form').reset();
-                }, function(error) {
-                    messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> خطا در ارسال پیام. لطفاً مستقیماً ایمیل بزنید.';
-                    messageDiv.className = 'message-error';
-                    console.log('خطای EmailJS:', error);
-                });
-        });
-
-        // ========== مدیریت لاگین ==========
-        function showLogin() {
-            document.getElementById('loginModal').style.display = 'block';
-        }
-
-        function closeLogin() {
-            document.getElementById('loginModal').style.display = 'none';
-        }
-
-        function checkPassword(event) {
-            event.preventDefault();
-            const password = document.getElementById('password').value;
-            const correctPassword = "123456";
+            if (!contactForm) return;
             
-            if (password === correctPassword) {
-                alert('با موفقیت وارد شدید! پیام‌ها به ایمیل شما ارسال می‌شوند.');
-                closeLogin();
-                window.open('https://mail.yahoo.com', '_blank');
-            } else {
-                alert('رمز عبور اشتباه است!');
-            }
-        }
+            contactForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                
+                const messageDiv = document.getElementById('form-message');
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalBtnText = submitBtn.innerHTML;
+                
+                // نمایش حالت لودینگ
+                messageDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> در حال ارسال پیام...';
+                messageDiv.className = 'form-message message-loading';
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> در حال ارسال...';
+                
+                try {
+                    const formData = new FormData(this);
+                    
+                    // ارسال به Formspree
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // موفقیت
+                        messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> پیام شما با موفقیت ارسال شد! به زودی پاسخ می‌دم.';
+                        messageDiv.className = 'form-message message-success';
+                        contactForm.reset();
+                        
+                        // مخفی کردن پیام موفقیت بعد از ۵ ثانیه
+                        setTimeout(() => {
+                            messageDiv.style.opacity = '0';
+                            setTimeout(() => {
+                                messageDiv.innerHTML = '';
+                                messageDiv.className = 'form-message';
+                                messageDiv.style.opacity = '1';
+                            }, 500);
+                        }, 5000);
+                        
+                    } else {
+                        // خطا
+                        throw new Error('خطای سرور');
+                    }
+                    
+                } catch (error) {
+                    // خطای شبکه
+                    messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> خطا در ارسال پیام. لطفاً مستقیماً ایمیل بزنید یا دوباره تلاش کنید.';
+                    messageDiv.className = 'form-message message-error';
+                    console.log('خطا در ارسال فرم:', error);
+                    
+                } finally {
+                    // بازگرداندن دکمه به حالت اول
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            });
+        });        
 
         // ========== ماشین حساب - نسخه EVENT LISTENER ==========
         document.addEventListener('DOMContentLoaded', function() {
