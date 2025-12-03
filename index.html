@@ -890,56 +890,55 @@
     <script>
         // ========== ماشین حساب  ==========
         (function() {
+            // جلوگیری از اجرای تکراری
+            if (window.calculatorInitialized) {
+                console.log('⚠️ ماشین حساب قبلاً راه‌اندازی شده!');
+                return;
+            }
+            window.calculatorInitialized = true;
+            
             console.log('🔢 ماشین حساب در حال راه‌اندازی...');
             
-            // کمی تاخیر برای مطمئن شدن از لود DOM
             setTimeout(function() {
                 const calcInput = document.getElementById('calc-input');
                 const buttonsContainer = document.querySelector('.calc-buttons');
-                
-                console.log('ورودی ماشین حساب:', calcInput);
-                console.log('کنتینر دکمه‌ها:', buttonsContainer);
                 
                 if (!calcInput || !buttonsContainer) {
                     console.error('❌ المان‌های ماشین حساب پیدا نشدند!');
                     return;
                 }
                 
-                // Event Delegation: یک listener برای کل دکمه‌ها
-                buttonsContainer.addEventListener('click', function(event) {
+                // حذف event listenerهای قبلی با clone
+                const newButtonsContainer = buttonsContainer.cloneNode(true);
+                buttonsContainer.parentNode.replaceChild(newButtonsContainer, buttonsContainer);
+                
+                // Event Delegation
+                newButtonsContainer.addEventListener('click', function(event) {
                     const button = event.target;
                     if (button.tagName !== 'BUTTON') return;
                     
                     const value = button.textContent;
-                    console.log('دکمه فشرده شد:', value);
                     
                     if (value === 'C') {
                         calcInput.value = '';
                     } else if (value === '=') {
                         try {
                             if (!calcInput.value) return;
-                            // محاسبه امن
-                            const result = new Function('return ' + calcInput.value)();
+                            const result = Function('"use strict"; return (' + calcInput.value + ')')();
                             calcInput.value = result;
-                            console.log('نتیجه:', result);
                         } catch (error) {
                             calcInput.value = 'خطا!';
-                            console.error('خطای محاسبه:', error);
                         }
                     } else {
-                        // عدد یا عملگر
                         calcInput.value += value;
                     }
+                    
+                    event.stopPropagation();
                 });
                 
                 console.log('✅ ماشین حساب با موفقیت راه‌اندازی شد!');
-                console.log('دکمه‌های موجود:', buttonsContainer.children.length);
                 
-                // تست خودکار
-                calcInput.value = 'آماده!';
-                setTimeout(() => { calcInput.value = ''; }, 1000);
-                
-            }, 300); // تاخیر ۳۰۰ میلی‌ثانیه
+            }, 300);
         })();
         </script>
 </body>
