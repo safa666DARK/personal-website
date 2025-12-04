@@ -34,6 +34,7 @@
         <!-- ناوبری سریع -->
         <nav class="quick-nav">
             <a href="#projects-gallery"><i class="fas fa-rocket"></i> پروژه‌ها</a>
+            <a href="#blog"><i class="fas fa-blog"></i> بلاگ فنی</a>
             <a href="#clock"><i class="fas fa-clock"></i> ساعت</a>
             <a href="#calculator"><i class="fas fa-calculator"></i> ماشین حساب</a>
             <a href="#contact"><i class="fas fa-envelope"></i> تماس</a>
@@ -281,25 +282,26 @@
                 </div>
                 
                 <!-- پروژه ۸ -->
-                <div class="project-card" data-tech="python flask javascript">
+                <div class="project-card" data-tech="html css javascript">
                     <div class="project-icon web">
                         <i class="fas fa-globe"></i>
                     </div>
                     <div class="project-info">
-                        <h3>github-pages</h3>
-                        <p>پروژه‌های تحت وب</p>
+                        <h3>پورتفولیو آنلاین</h3>
+                        <p>وب‌سایت شخصی و نمایشگاه پروژه‌ها</p>
                         <div class="tech-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Flask</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
                             <span class="tag">JavaScript</span>
-                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">GitHub Pages</span>
                         </div>
                         <div class="project-features">
-                            <span><i class="fas fa-laptop-code"></i> وب اپلیکیشن</span>
-                            <span><i class="fas fa-mobile-alt"></i> ریسپانسیو</span>
-                            <span><i class="fas fa-bolt"></i> API</span>
+                            <span><i class="fas fa-rocket"></i> ۱۴ پروژه معرفی شده</span>
+                            <span><i class="fas fa-mobile-alt"></i> طراحی ریسپانسیو</span>
+                            <span><i class="fas fa-blog"></i> بخش بلاگ فنی</span>
+                            <span><i class="fas fa-calculator"></i> ابزارهای تعاملی</span>
                         </div>
-                        <button class="details-btn" onclick="showProjectDetails('web')">
+                        <button class="details-btn" onclick="showProjectDetails('portfolio')">
                             <i class="fas fa-info-circle"></i> جزئیات بیشتر
                         </button>
                     </div>
@@ -511,7 +513,7 @@
             <div class="blog-grid">
                 <!-- پست ۱ -->
                 <article class="blog-post">
-                    <h3><a href="#blog-post-1">راهنمای جامع Tkinter + SQLite</a></h3>
+                    <h3><a href="blog/tkinter-guide.html">راهنمای جامع Tkinter: از صفر تا فریلنسینگ</a></h3>
                     <p class="post-meta">
                         <i class="far fa-calendar"></i> ۱۵ فروردین ۱۴۰۳ • 
                         <i class="far fa-clock"></i> ۸ دقیقه خواندن •
@@ -556,6 +558,12 @@
 
     <!-- ==================== فوتر و تماس ==================== -->
 <footer>
+    <div class="footer-links">
+        <a href="#projects-gallery"><i class="fas fa-rocket"></i> پروژه‌ها</a>
+        <a href="#blog"><i class="fas fa-blog"></i> بلاگ</a>
+        <a href="#skills"><i class="fas fa-tools"></i> مهارت‌ها</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> تماس</a>
+    </div>
     <!-- فرم تماس -->
 <section id="contact" class="contact-section">
     <div class="container">
@@ -813,21 +821,149 @@
         // ========== مودال جزئیات پروژه ==========
         function showProjectDetails(projectId) {
             const projectDetails = {
-                clinic: {
-                    title: "ClinicManager®",
-                    description: "سیستم مدیریت کامل کلینیک پزشکی با امکانات پیشرفته مدیریت بیماران، نوبت‌دهی، نسخه‌نویسی و گزارش‌گیری.",
-                    features: ["داشبورد مدیریتی", "سیستم نوبت‌دهی", "مدیریت پرونده بیماران", "نسخه‌نویسی الکترونیک", "گزارش‌گیری آماری"],
-                    tech: ["Python", "Tkinter", "SQLite", ".exe"],
-                    status: "تکمیل شده"
-                },
-                crm: {
-                    title: "CRM پیشرفته",
-                    description: "سیستم مدیریت ارتباط با مشتریان با قابلیت‌های پیگیری فرصت‌های فروش، مدیریت قرارها و گزارش‌گیری تحلیلی.",
-                    features: ["مدیریت مخاطبین", "پیگیری فروش", "تقویم قرارها", "سیستم پیام‌رسانی", "گزارش‌گیری پیشرفته"],
-                    tech: ["Python", "Tkinter", "SQLite", ".exe"],
-                    status: "تکمیل شده"
-                }
-            };
+    clinic: {
+        title: "ClinicManager®",
+        description: "سیستم مدیریت کامل کلینیک پزشکی با امکانات پیشرفته مدیریت بیماران، نوبت‌دهی، نسخه‌نویسی و گزارش‌گیری.",
+        features: [
+            "داشبورد مدیریتی پیشرفته",
+            "سیستم نوبت‌دهی هوشمند", 
+            "مدیریت پرونده بیماران",
+            "نسخه‌نویسی الکترونیک",
+            "گزارش‌گیری آماری",
+            "پشتیبان‌گیری خودکار",
+            "چاپ نسخه و گزارش"
+        ],
+        tech: ["Python 3.9", "Tkinter", "SQLite", "ReportLab", ".exe"],
+        status: "تکمیل شده",
+        size: "۱۵MB",
+        date: "اسفند ۱۴۰۲"
+    },
+    
+    crm: {
+        title: "CRM پیشرفته",
+        description: "سیستم مدیریت ارتباط با مشتریان با قابلیت‌های پیگیری فرصت‌های فروش، مدیریت قرارها و گزارش‌گیری تحلیلی.",
+        features: [
+            "مدیریت مخاطبین و شرکت‌ها",
+            "پیگیری فرصت‌های فروش", 
+            "تقویم و یادآور قرارها",
+            "سیستم تیکت‌ینگ",
+            "گزارش‌گیری پیشرفته",
+            "نمودارهای تحلیلی",
+            "خروجی Excel"
+        ],
+        tech: ["Python", "Tkinter", "SQLite", "Matplotlib", ".exe"],
+        status: "تکمیل شده", 
+        size: "۱۲MB",
+        date: "بهمن ۱۴۰۲"
+    },
+    
+    filemaster: {
+        title: "FileMaster Pro®",
+        description: "نرم‌افزار مدیریت هوشمند فایل‌ها با قابلیت جستجوی پیشرفته، دسته‌بندی خودکار و عملیات گروهی.",
+        features: [
+            "جستجوی پیشرفته در محتوا",
+            "دسته‌بندی خودکار فایل‌ها", 
+            "عملیات گروهی (کپی، انتقال، حذف)",
+            "تبدیل فرمت‌های مختلف",
+            "برچسب‌گذاری هوشمند",
+            "آنالیز استفاده از فضای دیسک",
+            "پاک‌سازی خودکار"
+        ],
+        tech: ["Python", "Tkinter", "OS Module", "Pillow", ".exe"],
+        status: "تکمیل شده",
+        size: "۸MB",
+        date: "دی ۱۴۰۲"
+    },
+    
+    pdf: {
+        title: "PDF_PROJECT®",
+        description: "ابزار حرفه‌ای پردازش فایل‌های PDF با قابلیت ادغام، تقسیم، رمزگذاری و استخراج متن.",
+        features: [
+            "ادغام چندین PDF در یک فایل",
+            "تقسیم PDF به صفحات جداگانه",
+            "رمزگذاری و محافظت از فایل",
+            "استخراج متن و تصاویر",
+            "فشرده‌سازی PDF",
+            "چرخش و مرتب‌سازی صفحات",
+            "اضافه کردن واترمارک"
+        ],
+        tech: ["Python", "Tkinter", "PyPDF2", "pdfplumber", ".exe"],
+        status: "تکمیل شده",
+        size: "۶MB", 
+        date: "آذر ۱۴۰۲"
+    },
+    
+    invoice: {
+        title: "InvoiceGenerator",
+        description: "سیستم تولید فاکتور خودکار با قالب‌های آماده، محاسبات مالی و خروجی PDF حرفه‌ای.",
+        features: [
+            "قالب‌های آماده فاکتور",
+            "محاسبات مالی (مالیات، تخفیف)",
+            "مدیریت محصولات و خدمات",
+            "تاریخچه فاکتورها",
+            "خروجی PDF و چاپ",
+            "گزارش‌گیری مالی",
+            "پشتیبانی از چندین زبان"
+        ],
+        tech: ["Python", "Tkinter", "ReportLab", "NumPy", ".exe"],
+        status: "تکمیل شده",
+        size: "۱۰MB",
+        date: "آبان ۱۴۰۲"
+    },
+    
+    todo: {
+        title: "TO-DO-PROJECT®",
+        description: "اپلیکیشن مدیریت کارها و پروژه‌ها با یادآور هوشمند، دسته‌بندی و نمودار پیشرفت.",
+        features: [
+            "یادآور هوشمند (اعلان‌ها)",
+            "دسته‌بندی پروژه‌ها و تگ‌ها",
+            "نمودار پیشرفت کارها",
+            "اولویت‌بندی (فوری، مهم، عادی)",
+            "همگام‌سازی ساده",
+            "گزارش عملکرد روزانه/هفتگی",
+            "قالب‌های آماده چک‌لیست"
+        ],
+        tech: ["Python", "Tkinter", "SQLite", ".exe"],
+        status: "تکمیل شده",
+        size: "۵MB",
+        date: "مهر ۱۴۰۲"
+    },
+    
+    store: {
+        title: "PROJECT_STORE®",
+        description: "سیستم فروشگاه و مدیریت انبار با قابلیت مدیریت موجودی، صدور فاکتور و گزارش فروش.",
+        features: [
+            "مدیریت موجودی و انبار",
+            "صدور فاکتور فروش",
+            "گزارش فروش روزانه/ماهانه",
+            "مدیریت تامین‌کنندگان",
+            "هشدار کمبود موجودی",
+            "سیستم مشتریان وفادار",
+            "خروجی Excel برای حسابداری"
+        ],
+        tech: ["Python", "Tkinter", "SQLite", ".exe"],
+        status: "تکمیل شده",
+        size: "۱۴MB",
+        date: "شهریور ۱۴۰۲"
+    },
+    portfolio: {
+    title: "پورتفولیو آنلاین",
+    description: "وب‌سایت شخصی حرفه‌ای برای نمایش ۱۴ پروژه پایتون، با طراحی ریسپانسیو، بلاگ فنی و ابزارهای تعاملی.",
+    features: [
+        "نمایش ۱۴ پروژه کامل پایتون",
+        "گالری فیلترشونده پروژه‌ها",
+        "بلاگ فنی برای نکات Tkinter/SQLite",
+        "ساعت آنالوگ و ماشین‌حساب تعاملی",
+        "فرم تماس مستقیم",
+        "طراحی ریسپانسیو موبایل و دسکتاپ",
+        "میزبانی رایگان روی GitHub Pages"
+    ],
+    tech: ["HTML5", "CSS3", "JavaScript", "FontAwesome", "GitHub Pages"],
+    status: "زنده و فعال",
+    url: "https://safa666dark.github.io/personal-website/",
+    date: "فروردین ۱۴۰۳"
+}
+};
             
             const project = projectDetails[projectId] || {
                 title: "پروژه",
