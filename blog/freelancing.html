@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <style>
-        /* همه استایل‌هایی که توی مقاله PyInstaller بود */
         .article-container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
         .article-header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 3px solid #667eea; }
         .article-title { color: #2d3748; font-size: 2.2rem; margin-bottom: 15px; }
@@ -24,9 +23,11 @@
         .command-block { background: #0f172a; color: #cbd5e1; padding: 15px; border-radius: 8px; margin: 15px 0; border-right: 4px solid #3b82f6; }
         .faq-item { background: #f8fafc; padding: 20px; margin: 15px 0; border-radius: 10px; border: 1px solid #e2e8f0; }
         .faq-question { color: #1e40af; font-weight: bold; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .highlight-section { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); color: white; padding: 30px; border-radius: 15px; margin: 30px 0; }
-        .highlight-section h2 { color: white; }
-        .back-to-blog { display: inline-block; margin-top: 30px; padding: 12px 25px; background: #667eea; color: white; text-decoration: none; border-radius: 25px; transition: all 0.3s ease; }
+        .highlight-section { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); color: white !important; padding: 30px; border-radius: 15px; margin: 30px 0; }
+        .highlight-section h2 { color: white !important; }
+        .highlight-section p,
+        .highlight-section li { color: rgba(255, 255, 255, 0.95) !important; }
+        .back-to-blog { display: inline-block; margin-top: 30px; padding: 12px 25px; background: #667eea; color: white !important; text-decoration: none; border-radius: 25px; transition: all 0.3s ease; }
         .back-to-blog:hover { background: #764ba2; transform: translateY(-3px); }
         .file-structure { background: #f1f5f9; padding: 20px; border-radius: 10px; font-family: 'Courier New', monospace; margin: 20px 0; }
         .widget-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
@@ -663,32 +664,34 @@ hours = estimate_hours(features)  # ≈ ۸۵ ساعت
             <div class="highlight-section">
                 <h2><i class="fas fa-check-double"></i> چک‌لیست نهایی تحویل پروژه</h2>
                 
-                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
-                    <h4>📋 چک‌لیست من قبل از تحویل هر پروژه:</h4>
+                <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; color: white !important;">
+                    <h4 style="color: white !important; margin-top: 0;">📋 چک‌لیست من قبل از تحویل هر پروژه:</h4>
                     
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
                         <div>
-                            <h5>✅ فنی:</h5>
-                            <ul>
-                                <li>فایل exe تست شده؟</li>
-                                <li>خطاهای کنسول چک شده؟</li>
-                                <li>در سیستم ۳۲ بیتی اجرا می‌شود؟</li>
-                                <li>دیتابیس نمونه پر شده؟</li>
+                            <h5 style="color: white !important;">✅ فنی:</h5>
+                            <ul style="color: white !important; padding-right: 20px;">
+                                <li style="color: rgba(19, 17, 17, 0.95) !important;">فایل exe تست شده؟</li>
+                                <li style="color: rgba(32, 30, 30, 0.95) !important;">خطاهای کنسول چک شده؟</li>
+                                <li style="color: rgba(29, 27, 27, 0.95) !important;">در سیستم ۳۲ بیتی اجرا می‌شود؟</li>
+                                <li style="color: rgba(17, 16, 16, 0.95) !important;">دیتابیس نمونه پر شده؟</li>
                             </ul>
                         </div>
                         <div>
-                            <h5>✅ مستندات:</h5>
-                            <ul>
-                                <li>راهنمای نصب نوشته شده؟</li>
-                                <li>راهنمای کاربری (PDF) آماده؟</li>
-                                <li>شماره تماس پشتیبانی درج شده؟</li>
-                                <li>لایسنس (اگر لازم است)؟</li>
+                            <h5 style="color: white !important;">✅ مستندات:</h5>
+                            <ul style="color: white !important; padding-right: 20px;">
+                                <li style="color: rgba(32, 30, 30, 0.95) !important;">راهنمای نصب نوشته شده؟</li>
+                                <li style="color: rgba(24, 22, 22, 0.95) !important;">راهنمای کاربری (PDF) آماده؟</li>
+                                <li style="color: rgba(37, 35, 35, 0.95) !important;">شماره تماس پشتیبانی درج شده؟</li>
+                                <li style="color: rgba(20, 19, 19, 0.95) !important;">لایسنس (اگر لازم است)؟</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div style="margin-top: 15px; text-align: center;">
-                        <p><strong>توصیه:</strong> این چک‌لیست را پرینت بگیر و به دیوار بزن!</p>
+                        <p style="color: white !important; margin: 0;">
+                            <strong style="color: white !important;">توصیه:</strong> این چک‌لیست را پرینت بگیر و به دیوار بزن!
+                        </p>
                     </div>
                 </div>
             </div>
@@ -698,7 +701,7 @@ hours = estimate_hours(features)  # ≈ ۸۵ ساعت
         <section class="article-section">
             <h2><i class="fas fa-flag-checkered"></i> سخن پایانی: تو هم می‌توانی!</h2>
             
-            <div class="highlight-section">
+            <div class="widget-item" style="border-color: #10b981; background-color: #f0fdf4;">
                 <h2><i class="fas fa-rocket"></i> ۴ قدم عملی برای شروع از همین امروز</h2>
                 
                 <div class="widget-grid">
@@ -757,7 +760,7 @@ hours = estimate_hours(features)  # ≈ ۸۵ ساعت
             <!-- دعوت به اقدام -->
             <div style="text-align: center; margin: 40px 0;">
                 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                            padding: 30px; border-radius: 15px; color: white;">
+                            padding: 30px; border-radius: 15px; color: rgb(34, 16, 16);">
                     <h2 style="color: white; margin-top: 0;">هنوز منتظری؟!</h2>
                     <p style="font-size: 1.2rem;">همین الان:</p>
                     <ol style="text-align: right; display: inline-block; margin: 20px 0;">
