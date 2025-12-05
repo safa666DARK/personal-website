@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐍 ساخت فایل exe با PyInstaller | دکتر صفا مقنیان</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.003/font.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        .article-title {
+            color: #2d3748;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: #091322;
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .article-section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-right: 4px solid #667eea;
+        }
+        .article-section h2 {
+            color: #2d3748;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .tip-box {
+            background: #f0f9ff;
+            border-right: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .tip-box h3 {
+            color: #1e40af;
+            margin-top: 0;
+        }
+        .warning-box {
+            background: #fef2f2;
+            border-right: 4px solid #dc2626;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .warning-box h3 {
+            color: #b91c1c;
+            margin-top: 0;
+        }
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .command-block {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-right: 4px solid #3b82f6;
+        }
+        .faq-item {
+            background: #f8fafc;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+        .faq-question {
+            color: #1e40af;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .highlight-section {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        .highlight-section h2 {
+            color: white;
+        }
+        .back-to-blog {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        .back-to-blog:hover {
+            background: #764ba2;
+            transform: translateY(-3px);
+        }
+        .file-structure {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 1.8rem;
+            }
+            .article-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <!-- هدر مقاله -->
+        <header class="article-header">
+            <h1 class="article-title">
+                <i class="fas fa-file-export"></i> چگونه فایل اجرایی exe از پروژه‌های پایتون بسازیم؟
+            </h1>
+            <div class="article-meta">
+                <span><i class="far fa-user"></i> دکتر صفا مقنیان</span>
+                <span><i class="far fa-calendar"></i> ۲۱ فروردین ۱۴۰۳</span>
+                <span><i class="far fa-clock"></i> ۷ دقیقه خواندن</span>
+                <span><i class="fas fa-tags"></i> Python, PyInstaller, exe, فریلنسینگ</span>
+            </div>
+        </header>
+
+        <!-- مقدمه -->
+        <section class="article-section">
+            <p>وقتی یک برنامه پایتون می‌نویسید – مثلاً یک سیستم مدیریت کلینیک با Tkinter – آخرین کاری که باید انجام دهید این است که آن را به یک فایل اجرایی تبدیل کنید تا:</p>
+            <ul>
+                <li>✅ <strong>نیاز به نصب پایتون نباشد</strong> – کاربران عادی معمولاً پایتون ندارند!</li>
+                <li>✅ <strong>حمل و انتقال آسان</strong> – فقط یک فایل exe به مشتری تحویل دهید</li>
+                <li>✅ <strong>اجرای سریع</strong> – با دوبار کلیک برنامه اجرا شود</li>
+                <li>✅ <strong>حفظ کد منبع</strong> – کاربران کدهای شما را نمی‌بینند</li>
+            </ul>
+            <p>در بین ابزارهای مختلف، <strong>PyInstaller</strong> را انتخاب کردم چون شخصاً در همه ۱۴ پروژه‌ام از آن استفاده کرده‌ام و نتایج عالی گرفته‌ام!</p>
+        </section>
+
+        <!-- نصب PyInstaller -->
+        <section class="article-section">
+            <h2><i class="fas fa-download"></i> نصب PyInstaller: فقط ۱ خط کد!</h2>
+            <div class="command-block">
+                pip install pyinstaller
+            </div>
+            
+            <div class="tip-box">
+                <h3><i class="fas fa-lightbulb"></i> نکات مهم نصب:</h3>
+                <p><strong>استفاده از محیط مجازی (توصیه می‌کنم):</strong></p>
+                <div class="code-block">
+python -m venv venv<br>
+venv\Scripts\activate   # در ویندوز<br>
+pip install pyinstaller
+                </div>
+                
+                <p><strong>بررسی نسخه نصب‌شده:</strong></p>
+                <div class="command-block">
+                    pyinstaller --version
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <h3><i class="fas fa-exclamation-triangle"></i> نکته ویژه برای ویندوز ۳۲ بیتی:</h3>
+                <p>اگر روی ویندوز ۳۲ بیتی کار می‌کنید (مثل سیستم خودم)، مطمئن شوید پایتون ۳۲ بیتی نصب شده:</p>
+                <div class="command-block">
+                    python -c "import struct; print(struct.calcsize('P') * 8)"
+                </div>
+                <p>خروجی باید <code>32</code> باشد.</p>
+            </div>
+        </section>
+
+        <!-- دستورات اولیه -->
+        <section class="article-section">
+            <h2><i class="fas fa-terminal"></i> دستورات اولیه: از ساده تا پیشرفته</h2>
+            
+            <h3>۱. ساده‌ترین حالت:</h3>
+            <div class="command-block">
+                pyinstaller your_script.py
+            </div>
+            <p>این دستور پوشه‌ای به نام <code>dist</code> می‌سازد و همه فایل‌های لازم را در آن کپی می‌کند.</p>
+            
+            <h3>۲. حالت تک‌فایل (مورد علاقه من!):</h3>
+            <div class="command-block">
+                pyinstaller --onefile your_script.py
+            </div>
+            <p><strong>✅ مزیت:</strong> فقط یک فایل exe تحویل می‌دهد<br>
+            <strong>⚠️ نکته:</strong> اجرای اولیه کمی کندتر است</p>
+            
+            <h3>۳. بدون کنسول (برای برنامه‌های GUI):</h3>
+            <div class="command-block">
+                pyinstaller --onefile --windowed your_script.py
+            </div>
+            <p>ایده‌آل برای برنامه‌های Tkinter - پنجره کنسول نمایش داده نمی‌شود.</p>
+            
+            <h3>۴. مثال واقعی از پروژه ClinicManager:</h3>
+            <div class="command-block">
+                pyinstaller --onefile --windowed --icon=clinic.ico --name ClinicManager_v2.0 main.py
+            </div>
+        </section>
+
+        <!-- تنظیمات ویندوز ۳۲ بیتی -->
+        <section class="article-section">
+            <h2><i class="fas fa-cog"></i> تنظیمات خاص برای ویندوز ۳۲ بیتی</h2>
+            
+            <div class="tip-box">
+                <h3><i class="fas fa-check-circle"></i> چک لیست قبل از ساخت:</h3>
+                <ol>
+                    <li><strong>پایتون ۳۲ بیتی:</strong> مطمئن شوید پایتون ۳۲ بیتی نصب است</li>
+                    <li><strong>کتابخانه‌های ۳۲ بیتی:</strong> همه کتابخانه‌ها باید نسخه ۳۲ بیتی باشند</li>
+                    <li><strong>حافظه:</strong> ساخت exe در سیستم‌های ۳۲ بیتی به ۲GB+ RAM نیاز دارد</li>
+                </ol>
+            </div>
+            
+            <h3>دستور بهینه‌شده برای ویندوز ۳۲ بیتی:</h3>
+            <div class="command-block">
+                pyinstaller --onefile --windowed --clean --noupx your_script.py
+            </div>
+            
+            <p><strong>توضیح پرچم‌ها:</strong></p>
+            <ul>
+                <li><code>--clean</code>: پاکسازی کش قبل از ساخت (حل مشکل خطاهای عجیب!)</li>
+                <li><code>--noupx</code>: غیرفعال کردن فشرده‌سازی (برای سازگاری بهتر با آنتی‌ویروس‌ها)</li>
+            </ul>
+            
+            <h3>ساختار پیشنهادی پوشه‌ها:</h3>
+            <div class="file-structure">
+project/<br>
+├── src/<br>
+│   ├── main.py<br>
+│   └── modules/<br>
+├── icons/<br>
+│   └── app.ico<br>
+├── build/      # ساخته شده توسط PyInstaller<br>
+├── release/    # فایل exe نهایی<br>
+└── requirements.txt
+            </div>
+        </section>
+
+        <!-- مشکل مسیرها -->
+        <section class="article-section">
+            <h2><i class="fas fa-map-signs"></i> مشکل شماره ۱ من: گم شدن مسیر فایل‌ها!</h2>
+            
+            <div class="warning-box">
+                <h3><i class="fas fa-exclamation-circle"></i> مشکل:</h3>
+                <p>وقتی برنامه رو به exe تبدیل می‌کنی، مسیر فایل‌هایی مثل آیکون‌ها، عکس‌ها و دیتابیس دیگر کار نمی‌کنن!</p>
+            </div>
+            
+            <h3>راه حل من (استفاده در همه پروژه‌هام):</h3>
+            <div class="code-block">
+import sys
+import os
+
+def get_resource_path(relative_path):
+    """
+    مسیر درست را در هر دو حالت توسعه (dev) و اجرا (exe) برمی‌گرداند
+    """
+    # اگر در حالت exe هستیم
+    if getattr(sys, 'frozen', False):
+        # مسیر موقت extract شده
+        base_path = sys._MEIPASS
+    else:
+        # مسیر پوشه پروژه در حالت توسعه
+        base_path = os.path.abspath(".")
+    
+    return os.path.join(base_path, relative_path)
+
+# ========== نحوه استفاده ==========
+
+# ۱. برای آیکون برنامه
+icon_path = get_resource_path("resources/icon.ico")
+root.iconbitmap(icon_path)
+
+# ۲. برای دیتابیس SQLite
+import sqlite3
+db_path = get_resource_path("data/clinic.db")
+conn = sqlite3.connect(db_path)
+            </div>
+            
+            <h3>دستور ساخت با منابع اضافه:</h3>
+            <div class="command-block">
+pyinstaller --onefile --windowed \
+    --add-data "resources;resources" \
+    --add-data "data;data" \
+    --icon=resources/icon.ico \
+    src/main.py
+            </div>
+        </section>
+
+        <!-- خطاهای رایج -->
+        <section class="article-section">
+            <h2><i class="fas fa-bug"></i> ۵ خطای رایج PyInstaller</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i> ۱. ModuleNotFoundError بعد از ساخت exe
+                </div>
+                <p><strong>راه حل:</strong> کتابخانه را دستی اضافه کنید:</p>
+                <div class="command-block">
+                    pyinstaller --onefile --hidden-import=PIL your_script.py
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i> ۲. فایل exe اجرا نمی‌شود (بدون پیام خطا)
+                </div>
+                <p><strong>علت:</strong> مشکل در مسیرهای نسبی<br>
+                <strong>راه حل:</strong> از تابع <code>get_resource_path</code> بالا استفاده کنید</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i> ۳. آنتی‌ویروس فایل exe را پاک می‌کند!
+                </div>
+                <p><strong>راه حل‌ها:</strong></p>
+                <ul>
+                    <li>از <code>--noupx</code> استفاده کنید</li>
+                    <li>به مشتری آموزش دهید آنتی‌ویروس را موقتاً خاموش کند</li>
+                    <li>فایل را امضا دیجیتال کنید (اگر نسخه پولی دارید)</li>
+                </ul>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i> ۴. Failed to execute script
+                </div>
+                <p><strong>راه حل تشخیص:</strong> با کنسول اجرا کنید تا خطا را ببینید:</p>
+                <div class="command-block">
+                    pyinstaller --onefile your_script.py<br>
+                    cd dist<br>
+                    your_script.exe
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i> ۵. فایل exe بسیار بزرگ است
+                </div>
+                <p><strong>راه حل:</strong> کتابخانه‌های غیرضروری را حذف کنید یا از محیط مجازی خالص استفاده کنید.</p>
+            </div>
+        </section>
+
+        <!-- نکته طلایی -->
+        <section class="highlight-section">
+            <h2><i class="fas fa-crown"></i> نکته طلایی: همیشه لاگ بگیرید!</h2>
+            <div class="code-block">
+import logging
+
+logging.basicConfig(
+    filename='app.log',
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    encoding='utf-8'
+)
+
+def main():
+    try:
+        # کد اصلی برنامه
+        logging.info("برنامه شروع شد")
+    except Exception as e:
+        logging.error(f"خطا: {e}", exc_info=True)
+            </div>
+            <p>این لاگ به شما کمک می‌کند خطاهای exe را در سیستم کاربران تشخیص دهید!</p>
+        </section>
+
+        <!-- نتیجه‌گیری -->
+        <section class="article-section">
+            <h2><i class="fas fa-flag-checkered"></i> نتیجه‌گیری: exe حرفه‌ای = مشتری راضی!</h2>
+            <p>بعد از ساخت <strong>۱۴ پروژه کامل با Tkinter</strong> و تبدیل آن‌ها به فایل exe، این نتایج را گرفتم:</p>
+            
+            <div class="tip-box">
+                <h3><i class="fas fa-trophy"></i> دستاوردهای من با PyInstaller:</h3>
+                <ul>
+                    <li><strong>تحویل آسان:</strong> فقط یک فایل exe به مشتری می‌دهم</li>
+                    <li><strong>بدون دردسر نصب:</strong> کاربر حتی نمی‌داند پایتون چیست!</li>
+                    <li><strong>حفظ مالکیت:</strong> کدهای من محفوظ می‌مانند</li>
+                    <li><strong>درآمد مطمئن:</strong> مشتریان ایرانی exe را ترجیح می‌دهند</li>
+                </ul>
+            </div>
+            
+            <h3>🎯 ۳ نکته نهایی از تجربه شخصی:</h3>
+            <ol>
+                <li><strong>همیشه اول روی سیستم خودت تست کن</strong> - اگر برای تو کار کرد، برای دیگران هم کار می‌کند</li>
+                <li><strong>از <code>--clean</code> استفاده کن</strong> - از شر خطاهای عجیب راحت می‌شوی</li>
+                <li><strong>فایل exe را آنتی‌ویروس چک کن</strong> - قبل از ارسال به مشتری</li>
+            </ol>
+            
+            <p><strong>سخن آخر:</strong><br>
+            PyInstaller دروازه‌ای به دنیای <strong>فریلنسینگ حرفه‌ای</strong> است. من با همین ابزار توانستم پروژه‌هایم را به کسب‌وکارهای مختلف بفروشم. تو هم می‌توانی!</p>
+        </section>
+
+        <!-- دکمه بازگشت -->
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="../index.html#blog" class="back-to-blog">
+                <i class="fas fa-arrow-right"></i> بازگشت به بلاگ
+            </a>
+        </div>
+    </div>
+</body>
+</html>
