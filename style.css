@@ -1346,3 +1346,38 @@ footer::before {
     background: rgba(255,255,255,0.2);
     transform: translateY(-3px);
 }
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.highlights {
+    margin: 25px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    border-right: 4px solid #4361ee;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.highlight-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.highlight-item i {
+    color: #4361ee;
+    margin-left: 15px;
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
