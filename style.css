@@ -385,7 +385,7 @@ button[type="submit"]:hover {
     background: #333;
     transform-origin: bottom center;
     left: 50%;
-    bottom: 50%; /* مهم: اینجا تغییر کرد */
+    bottom: 50%;
 }
 
 .hour-hand {
@@ -791,47 +791,50 @@ button[type="submit"]:hover {
 }
 
 .blog-post {
-    background: var(--light);
-    padding: 1.5rem;
-    border-radius: var(--radius);
+    background: var(--gray-100);
+    padding: 1.8rem;
+    border-radius: var(--radius-md);
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--gray-200);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 280px; /* ارتفاع ثابت و مناسب */
+    justify-content: flex-start;
+    min-height: 280px;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
 }
 
 .blog-post:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
     border-color: var(--primary);
     background: white;
 }
 
 .blog-post h3 {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 1rem 0;
     font-size: 1.3rem;
-    height: 5rem; 
-    overflow: hidden;
+    height: auto;
+    min-height: 3.5rem;
+    overflow: visible;
 }
 
 .blog-post h3 a {
-    color: var(--dark);
+    color: var(--gray-800);
     text-decoration: none;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: block;
+    line-height: 1.4;
+    transition: color 0.3s ease;
 }
 
 .blog-post h3 a:hover {
     color: var(--primary);
-    text-decoration: underline;
 }
 
 .post-meta {
-    color: #0c1522;
+    color: var(--gray-600);
     font-size: 0.85rem;
     margin-bottom: 1rem;
     display: flex;
@@ -841,30 +844,25 @@ button[type="submit"]:hover {
 }
 
 .post-meta span {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    background: rgba(102, 126, 234, 0.1);
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    color: #04090f; 
-    
-}
-
-.post-meta i {
-    color: var(--primary) !important; 
-    font-size: 0.9rem;
+    gap: 5px;
+    background: rgba(67, 97, 238, 0.1);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    color: var(--gray-700);
+    white-space: nowrap;
 }
 
 .blog-post > p {
-    color: #2d3748;
-    line-height: 1.6;
+    color: var(--gray-600);
+    line-height: 1.7;
     margin-bottom: 1rem;
-    flex-grow: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    flex-grow: 0;
+    display: block;
+    overflow: visible;
+    height: auto;
+    min-height: 4rem;
 }
 
 .read-more {
@@ -873,12 +871,15 @@ button[type="submit"]:hover {
     font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    align-self: flex-start;
 }
 
 .read-more:hover {
-    color: var(--secondary);
-    text-decoration: underline;
+    color: var(--accent);
+    transform: translateX(-5px);
 }
 
 @media (max-width: 768px) {
