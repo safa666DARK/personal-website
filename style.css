@@ -85,6 +85,216 @@ h2 {
     padding-bottom: 0.5rem;
 }
 
+/* انیمیشن جدید و بی‌خطر برای هدر */
+/* ===== هدر با افکت ترکیبی فوق‌حرفه‌ای ===== */
+header {
+    background: var(--gradient);
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: headerEntrance 1s ease;
+}
+
+/* انیمیشن ورود هدر */
+@keyframes headerEntrance {
+    from { 
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* افکت پس‌زمینه چرخان */
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+    animation: rotateSlow 25s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* لایه‌های محتوا */
+header h1 {
+    position: relative;
+    z-index: 10;
+    margin: 0;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    
+    /* ترکیب انیمیشن ورود + درخشش */
+    animation: slideDown 0.8s ease, glowPulse 3s ease-in-out infinite 0.8s;
+}
+
+header p {
+    position: relative;
+    z-index: 10;
+    margin: 0.5rem 0 0 0;
+    font-size: 1.3rem;
+    opacity: 0.95;
+    animation: slideDown 1s ease;
+}
+
+header p:last-of-type {
+    animation: slideDown 1.2s ease;
+}
+
+/* انیمیشن سر خوردن از بالا */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* انیمیشن درخشش (پالس) */
+@keyframes glowPulse {
+    0%, 100% { 
+        text-shadow: 0 0 10px rgba(255,255,255,0.3),
+                     0 0 20px var(--primary);
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(255,255,255,0.8),
+                     0 0 40px var(--primary),
+                     0 0 60px var(--accent);
+    }
+}
+
+/* ناوبری - بالاترین لایه */
+.quick-nav {
+    position: relative;
+    z-index: 30;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0 15px;
+    flex-wrap: wrap;
+    animation: fadeInUp 1.2s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* لینک‌های ناوبری - با هاور خفن */
+.quick-nav a {
+    padding: 12px 25px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    font-weight: 500;
+    position: relative;
+    z-index: 40;
+    overflow: hidden;
+}
+
+/* هاور لینک‌ها - ترکیبی از چند افکت */
+.quick-nav a:hover {
+    background: white;
+    color: var(--primary);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-color: white;
+}
+
+.quick-nav a:hover i {
+    animation: iconShake 0.5s ease;
+}
+
+@keyframes iconShake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+/* افکت موج روی لینک‌ها */
+.quick-nav a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+    z-index: -1;
+}
+
+.quick-nav a:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+        animation: slideDown 0.8s ease, glowPulse 3s ease-in-out infinite;
+    }
+    
+    header p {
+        font-size: 1rem;
+    }
+    
+    .quick-nav a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 2.5rem 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .quick-nav {
+        gap: 8px;
+    }
+    
+    .quick-nav a {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
 .project {
     background: #f8f9fa;
     padding: 1rem;
